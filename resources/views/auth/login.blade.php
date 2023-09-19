@@ -21,7 +21,7 @@
                                 <div class="form-outline form-white mb-4 text-start">
                                     <label class="form-label" for="typeEmailX">Email utente</label>
                                     <input type="email" id="typeEmailX" class="form-control form-control-lg"
-                                        placeholder="email@exemple.com" name="email" />
+                                        placeholder="email@exemple.com" name="email" required/>
                                     @error('email')
                                         {{ $message }}
                                     @enderror
@@ -30,7 +30,7 @@
                                 <div class="form-outline form-white mb-4 text-start">
                                     <label class="form-label" for="typePasswordX">Password</label>
                                     <input type="password" id="typePasswordX" class="form-control form-control-lg"
-                                        placeholder="Password" name="password" />
+                                        placeholder="Password" name="password" required/>
                                     @error('password')
                                         {{ $message }}
                                     @enderror

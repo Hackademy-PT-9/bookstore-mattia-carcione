@@ -21,7 +21,7 @@
                                 <div class="form-outline form-white mb-4 text-start">
                                     <label class="form-label" for="name">First Name</label>
                                     <input type="text" id="name" class="form-control form-control"
-                                        placeholder="Name" name="name" />
+                                        placeholder="Name" name="name" required value="{{ old('name') }}" />
                                     @error('email')
                                         {{ $message }}
                                     @enderror
@@ -30,7 +30,7 @@
                                 <div class="form-outline form-white mb-4 text-start">
                                     <label class="form-label" for="lastname">Last Name</label>
                                     <input type="text" id="lastname" class="form-control form-control"
-                                        placeholder="Surname" name="lastname" />
+                                        placeholder="Surname" name="lastname" required value="{{ old('lastname') }}" />
                                     @error('email')
                                         {{ $message }}
                                     @enderror
@@ -39,7 +39,8 @@
                                 <div class="form-outline form-white mb-4 text-start">
                                     <label class="form-label" for="typeEmailX">Email account</label>
                                     <input type="email" id="typeEmailX" class="form-control form-control"
-                                        placeholder="email@exemple.com" name="email" />
+                                        placeholder="email@exemple.com" name="email" required
+                                        value="{{ old('email') }}" />
                                     @error('email')
                                         {{ $message }}
                                     @enderror
@@ -48,7 +49,7 @@
                                 <div class="form-outline form-white mb-4 text-start">
                                     <label class="form-label" for="typePasswordX">Password</label>
                                     <input type="password" id="typePasswordX" class="form-control form-control"
-                                        placeholder="Password" name="password" />
+                                        placeholder="Password" name="password" required />
                                     @error('password')
                                         {{ $message }}
                                     @enderror
@@ -57,7 +58,7 @@
                                 <div class="form-outline form-white mb-4 text-start">
                                     <label for="password_confirmation" class="form-label">Password confirmation</label>
                                     <input type="password" name="password_confirmation" class="form-control"
-                                        id="password_confirmation" required>
+                                        id="password_confirmation" required placeholder="Password">
                                 </div>
 
                                 <button class="btn btn-outline-light btn px-5" type="submit">Sign Up</button>
