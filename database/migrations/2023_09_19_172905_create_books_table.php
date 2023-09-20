@@ -16,8 +16,8 @@ return new class extends Migration
             $table->string('title');
             $table->string('genre');
             $table->string('image')->nullable();
-            $table->string('pages')->nullable()->default(1);
-            $table->string('description')->nullable();
+            $table->integer('pages')->nullable()->default(1);
+            $table->mediumText('description')->nullable();
             $table->integer('year');
             $table->integer('price');
             $table->timestamps();

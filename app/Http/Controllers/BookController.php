@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Book;
 use App\Http\Requests\StoreBookRequest;
 use App\Http\Requests\UpdateBookRequest;
+use Illuminate\Support\Str;
 
 class BookController extends Controller
 {
@@ -13,7 +14,7 @@ class BookController extends Controller
      */
     public function index()
     {
-        //
+        return view('books.index', ['books' => Book::all()]);
     }
 
     /**
@@ -21,7 +22,7 @@ class BookController extends Controller
      */
     public function create()
     {
-        //
+        return view('books.create');
     }
 
     /**
@@ -29,7 +30,25 @@ class BookController extends Controller
      */
     public function store(StoreBookRequest $request)
     {
-        //
+        $path_image = '';
+        if ($request->hasFile('image') && $request->file('image')->isValid()) {
+            $path_name = $request->file('image')->getClientOriginalName();
+            $path_image = $request->file('image')->storeAs('public/images');
+        }
+
+        Book::create([
+            'title' => $request->title,
+            'genre' => $request->genre,
+            'image' => $path_image,
+            'pages' => $request->pages,
+            'description' => $request->description,
+            'year' => $request->year,
+            'price' => $request->price,
+            'author_id' => $request->author_id,
+            'uri' => Str::slug($request->name, '-')
+        ]);
+
+        return redirect()->route('books.index')->with('success', 'Libro aggiunto con successo');
     }
 
     /**
@@ -37,7 +56,7 @@ class BookController extends Controller
      */
     public function show(Book $book)
     {
-        //
+        return view('books.show', compact('book'));
     }
 
     /**
@@ -45,7 +64,7 @@ class BookController extends Controller
      */
     public function edit(Book $book)
     {
-        //
+        return view('books.edit', compact('book'));
     }
 
     /**
@@ -53,7 +72,25 @@ class BookController extends Controller
      */
     public function update(UpdateBookRequest $request, Book $book)
     {
-        //
+        $path_image = $book->image;
+        if ($request->hasFile('image') && $request->file('image')->isValid()) {
+            $path_name = $request->file('image')->getClientOriginalName();
+            $path_image = $request->file('image')->storeAs('public/images');
+        }
+
+        Book::update([
+            'title' => $request->title,
+            'genre' => $request->genre,
+            'image' => $path_image,
+            'pages' => $request->pages,
+            'description' => $request->description,
+            'year' => $request->year,
+            'price' => $request->price,
+            'author_id' => $request->author_id,
+            'uri' => Str::slug($request->name, '-')
+        ]);
+
+        return redirect()->route('books.index')->with('success', 'Libro modificato con successo');
     }
 
     /**
@@ -61,6 +98,8 @@ class BookController extends Controller
      */
     public function destroy(Book $book)
     {
-        //
+        $book->delete();
+
+        return redirect()->route('books.index')->with('success', 'Libro eliminato con successo');
     }
 }

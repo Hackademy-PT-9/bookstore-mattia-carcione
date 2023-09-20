@@ -12,9 +12,12 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
+//Route
 Route::get('/', function () {
-    return view('welcome');
-})->middleware('auth');
-
-
+    return view('homepage');
+})->name('home');
+//Route CRUD Book
+Route::middleware(['auth'])->group(function () {
+    Route::resource('books', 'BookController::class');
+    Route::resource('authors', 'AuthorController::class');
+});
