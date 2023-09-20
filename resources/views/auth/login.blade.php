@@ -11,16 +11,16 @@
                                 <h2
                                     class="fw-bold mb-2 text-uppercase d-flex justify-content-center align-items-center">
                                     <div class="w-25">
-                                        <img src="/book.jpg" class="img-fluid w-50" alt="bookstore">
+                                        <img src="/book.jpg" class="img-fluid w-50 rounded" alt="bookstore">
                                     </div>
                                     Bookstore
                                 </h2>
 
-                                <p class="text-white-50 mb-5">Please enter your Email and Password!</p>
+                                <p class="text-white-50 mb-5">Inserisci la tua email e password!</p>
 
                                 <div class="form-outline form-white mb-4 text-start">
                                     <label class="form-label" for="typeEmailX">Email utente</label>
-                                    <input type="email" id="typeEmailX" class="form-control form-control-lg"
+                                    <input type="email" id="typeEmailX" class="form-control form-control"
                                         placeholder="email@exemple.com" name="email" required/>
                                     @error('email')
                                         {{ $message }}
@@ -29,19 +29,19 @@
 
                                 <div class="form-outline form-white mb-4 text-start">
                                     <label class="form-label" for="typePasswordX">Password</label>
-                                    <input type="password" id="typePasswordX" class="form-control form-control-lg"
+                                    <input type="password" id="typePasswordX" class="form-control form-control"
                                         placeholder="Password" name="password" required/>
                                     @error('password')
                                         {{ $message }}
                                     @enderror
                                 </div>
 
-                                <button class="btn btn-outline-light btn-lg px-5" type="submit">Login</button>
+                                <button class="btn btn-outline-light btn px-5" type="submit">Login</button>
                             </div>
 
                             <div>
-                                <p class="mb-0">Don't have an account? <a href="{{ route('register') }}"
-                                        class="text-white-50 fw-bold">Sign Up</a>
+                                <p class="mb-0">Non hai un account? <a href="{{ route('register') }}"
+                                        class="text-white-50 fw-bold">Registrati</a>
                                 </p>
                             </div>
                         </form>
