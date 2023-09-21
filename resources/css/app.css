@@ -17,6 +17,9 @@ footer {
     color: white !important;
 }
 
+.disabled {
+    color: white!important;
+}
 .auth-link:hover {
     border-bottom: 0.5px solid black;
 }
@@ -25,7 +28,7 @@ footer {
 
 
 /* css section */
-.card {
+.card-custom {
     width: 15rem;
     height: 20rem;
     border-radius: 0px;
@@ -34,7 +37,7 @@ footer {
     transition: background-position 0.3s;
 }
 
-.card:hover {
+.card-custom:hover {
     background-position: right 50%;
 }
 

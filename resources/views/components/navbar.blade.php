@@ -31,7 +31,7 @@
                         </a></li>
                     <li class="nav-item"><a onclick="event.preventDefault(); this.closest('form').submit();" type="submit"
                             class="nav-link">
-                            Exit <span class="fa-solid fa-arrow-right-from-bracket" style="color: black;"></span>
+                            Esci <span class="fa-solid fa-arrow-right-from-bracket" style="color: black;"></span>
                         </a></li>
                 </form>
             </ul>
