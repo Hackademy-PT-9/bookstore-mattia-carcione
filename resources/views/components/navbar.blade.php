@@ -20,9 +20,9 @@
             <form class="flex-shrink-0 dropdown col-md-3 text-center" action="{{ route('logout') }}" method="POST">
                 @csrf
                 @method('POST')
-                <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle ps-5"
-                    data-bs-toggle="dropdown" aria-expanded="false">
-                    <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32"
+                <a href="#" class="d-block link-body-emphasis text-decoration-none ps-4" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    <img src="{{ Auth::user()->name }}" alt="{{ Auth::user()->name }}" width="35" height="35"
                         class="rounded-circle">
                 </a>
 
