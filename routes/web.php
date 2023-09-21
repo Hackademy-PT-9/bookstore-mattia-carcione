@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AuthorController;
+use App\Http\Controllers\BookController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,7 +19,5 @@ Route::get('/', function () {
     return view('homepage');
 })->name('home');
 //Route CRUD Book
-Route::middleware(['auth'])->group(function () {
-    Route::resource('books', 'BookController::class');
-    Route::resource('authors', 'AuthorController::class');
-});
+Route::resource('books', BookController::class);
+Route::resource('authors', AuthorController::class);

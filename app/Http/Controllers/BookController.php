@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Book;
 use App\Http\Requests\StoreBookRequest;
 use App\Http\Requests\UpdateBookRequest;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Str;
 
 class BookController extends Controller
@@ -12,6 +13,12 @@ class BookController extends Controller
     /**
      * Display a listing of the resource.
      */
+    public function __construct()
+    {
+    $this->middleware(['auth'])->except('index');
+    }
+
+
     public function index()
     {
         return view('books.index', ['books' => Book::all()]);
