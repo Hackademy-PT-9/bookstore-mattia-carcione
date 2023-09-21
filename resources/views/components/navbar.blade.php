@@ -21,12 +21,11 @@
         </ul>
 
         @auth
-            <ul class="nav col-12 col-md-auto justify-content-center mb-md-0v align-items-center">
-                <form class="d-flex d-md-none align-items-center" action="{{ route('logout') }}" method="POST">
+            <ul class="nav col-12 col-md-auto justify-content-center mb-md-0v align-items-center d-flex d-md-none">
+                <form class="align-items-center d-flex" action="{{ route('logout') }}" method="POST">
                     @csrf
                     @method('POST')
-                    <li class="nav-item px-2"><a onclick="event.preventDefault(); this.closest('form').submit();"
-                            type="submit" class="nav-link">
+                    <li class="nav-item px-2"><a href="{{ route('dashboard') }}" class="nav-link">
                             Dashboard
                         </a></li>
                     <li class="nav-item"><a onclick="event.preventDefault(); this.closest('form').submit();" type="submit"
@@ -38,15 +37,14 @@
         @endauth
 
         @auth
-            <form class="flex-shrink-0 dropdown col-md-3 text-center d-none d-md-block" action="{{ route('logout') }}"
-                method="POST">
+            <form class="dropdown col-md-3 text-center d-none d-md-block" action="{{ route('logout') }}" method="POST">
                 @csrf
                 @method('POST')
                 <span class="text-dark px-1">
                     Ciao,
                 </span>
 
-                <a href="" class="d-inline-flex link-body-emphasis text-decoration-none auth-link">
+                <a href="{{ route('dashboard') }}" class="d-inline-flex link-body-emphasis text-decoration-none auth-link">
                     <span>
                         {{ Auth::user()->name }}
                     </span>

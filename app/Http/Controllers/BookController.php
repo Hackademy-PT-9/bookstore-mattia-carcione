@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Author;
 use App\Models\Book;
 use App\Http\Requests\StoreBookRequest;
 use App\Http\Requests\UpdateBookRequest;
@@ -15,7 +16,7 @@ class BookController extends Controller
      */
     public function __construct()
     {
-    $this->middleware(['auth'])->except('index');
+        $this->middleware(['auth'])->except(['index', 'show']);
     }
 
 
@@ -29,7 +30,7 @@ class BookController extends Controller
      */
     public function create()
     {
-        return view('books.create');
+        return view('books.create', ['authors' => Author::all()]);
     }
 
     /**
@@ -52,10 +53,10 @@ class BookController extends Controller
             'year' => $request->year,
             'price' => $request->price,
             'author_id' => $request->author_id,
-            'uri' => Str::slug($request->name, '-')
+            'uri' => Str::slug($request->title, '-')
         ]);
 
-        return redirect()->route('books.index')->with('success', 'Libro aggiunto con successo');
+        return redirect()->route('dashboard')->with('success', 'Libro aggiunto con successo');
     }
 
     /**

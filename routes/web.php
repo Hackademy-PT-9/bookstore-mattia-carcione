@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\RouteController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,9 +16,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 //Route
-Route::get('/', function () {
-    return view('homepage');
-})->name('home');
+Route::get('/', [RouteController::class, 'home'])->name('home');
+Route::get('/dashboard', [RouteController::class, 'dashboard'])->name('dashboard');
 //Route CRUD Book
 Route::resource('books', BookController::class);
 Route::resource('authors', AuthorController::class);

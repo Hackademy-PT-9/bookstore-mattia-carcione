@@ -7,6 +7,15 @@ footer {
     background: #F5DEB3;
 }
 
+/* css dashboard */
+td,
+th {
+    width: 25px!important;
+    white-space: nowrap!important;
+    overflow: hidden!important;
+    text-overflow: ellipsis!important;
+}
+
 /* css navbar */
 .nav-link {
     color: black;
@@ -17,15 +26,17 @@ footer {
     color: white !important;
 }
 
-.disabled {
-    color: white!important;
+.fa-arrow-right-from-bracket:hover {
+    color: white !important;
 }
+
+.disabled {
+    color: white !important;
+}
+
 .auth-link:hover {
     border-bottom: 0.5px solid black;
 }
-
-/* css header */
-
 
 /* css section */
 .card-custom {
