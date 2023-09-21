@@ -1,13 +1,72 @@
 @import 'bootstrap';
 
 /* css login */
-.gradient-custom {
-    /* fallback for old browsers */
-    background: #6a11cb;
+.gradient-custom,
+nav,
+footer {
+    background: #F5DEB3;
+}
 
-    /* Chrome 10-25, Safari 5.1-6 */
-    background: -webkit-linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
+/* css navbar */
+.nav-link {
+    color: black;
+}
 
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1))
+.nav-link:hover {
+    color: RGBA(var(--bs-secondary-rgb), var(--bs-link-opacity, 1)) !important;
+    color: white !important;
+}
+
+.auth-link:hover {
+    border-bottom: 0.5px solid black;
+}
+
+/* css header */
+
+
+/* css section */
+.card {
+    width: 15rem;
+    height: 20rem;
+    border-radius: 0px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: background-position 0.3s;
+}
+
+.card:hover {
+    background-position: right 50%;
+}
+
+.border-custom {
+    border: 0;
+    border-radius: 0;
+    background-color: #F0F0F0
+}
+
+/* mediaquery */
+@media screen and (min-width: 992px) {
+
+    /* css header */
+    header {
+        background-image: url('/public/Leggere-libri-velocemente.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position-x: center;
+        background-position-y: bottom;
+        background-attachment: fixed;
+        height: 100vh;
+        padding-top: 10%;
+        margin-top: 0 !important;
+    }
+
+    /* css section */
+    .bg-img {
+        background-image: url('/public/vend1.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-attachment: fixed;
+        padding: 25%;
+    }
 }

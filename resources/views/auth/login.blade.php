@@ -16,9 +16,9 @@
                             <div class="mb-md-5 mt-md-4 pb-5">
                                 <h2
                                     class="fw-bold mb-2 text-uppercase d-flex justify-content-center align-items-center">
-                                    <div class="w-25">
-                                        <img src="/book.jpg" class="img-fluid w-50 rounded" alt="bookstore">
-                                    </div>
+                                    <span style="width: 10%" class="mx-1">
+                                        <img src="/book.jpg" class="img-fluid rounded"  alt="bookstore">
+                                    </span>
                                     Bookstore
                                 </h2>
 

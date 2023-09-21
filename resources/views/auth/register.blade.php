@@ -1,6 +1,6 @@
 <x-auth>
     <section class="min-vh-100 gradient-custom">
-        <div class="container py-2">
+        <div class="container py-4">
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col-12 col-md-8 col-lg-6 col-xl-5">
                     <div class="card bg-dark text-white" style="border-radius: 1rem;">
@@ -16,13 +16,13 @@
                             <div class="mb-md-4 mt-md-4 pb-1">
                                 <h2
                                     class="fw-bold mb-2 text-uppercase d-flex justify-content-center align-items-center">
-                                    <div class="w-25">
-                                        <img src="/book.jpg" class="img-fluid w-50 rounded" alt="bookstore">
-                                    </div>
+                                    <span style="width: 10%" class="mx-1">
+                                        <img src="/book.jpg" class="img-fluid rounded"  alt="bookstore">
+                                    </span>
                                     Bookstore
                                 </h2>
 
-                                <p class="text-white-50 mb-5">Registrati ora!</p>
+                                <p class="text-white-50 mb-3">Registrati ora!</p>
 
                                 <div class="form-outline form-white mb-4 text-start">
                                     <label class="form-label" for="name">Nome</label>
