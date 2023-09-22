@@ -33,6 +33,9 @@ th {
     color: white !important;
 }
 
+.link-underline-dark{
+    text-decoration: underline;
+}
 
 .fa-arrow-right-from-bracket:hover {
     color: white;

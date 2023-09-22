@@ -1,5 +1,5 @@
 <x-auth>
-    <div class="navbar sticky-top bg-dark flex-md-nowrap p-0 shadow d-md-none" data-bs-theme="dark" style="">
+    <nav class="navbar sticky-top fixed-top bg-dark flex-md-nowrap p-0 shadow d-md-none" data-bs-theme="dark" style="">
         <a href="{{ route('home') }}"
             class="d-inline-flex align-items-center py-1 link-body-emphasis text-decoration-none">
             <img class="bi rounded" src="\book.jpg" width="40" height="32" role="img">
@@ -14,7 +14,7 @@
                 </button>
             </li>
         </ul>
-    </div>
+    </nav>
 
     <div class="container-fluid">
         <div class="row">

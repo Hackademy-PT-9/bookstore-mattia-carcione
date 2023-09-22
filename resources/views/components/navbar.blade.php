@@ -25,8 +25,8 @@
                 <form class="align-items-center d-flex" action="{{ route('logout') }}" method="POST">
                     @csrf
                     @method('POST')
-                    <li class="nav-item px-2"><a href="{{ route('dashboard') }}" class="nav-link">
-                            Dashboard
+                <li class="nav-item px-2"><a href="{{ route('dashboard') }}" class="nav-link link-underline-dark">
+                        {{ Auth::user()->name }}
                         </a></li>
                     <li class="nav-item"><a onclick="event.preventDefault(); this.closest('form').submit();" type="submit"
                             class="nav-link">
