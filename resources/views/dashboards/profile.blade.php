@@ -6,7 +6,7 @@
                 </div>
             </div>
             <div class="col-12 col-sm-auto flex-1">
-                <a href="{{ route('users.edit'), Auth::user()->id }}" class="d-block text-decoration-none">ciai</a>
+                <a href="{{ route('users.edit') }}" class="d-block text-decoration-none">ciai</a>
                 <h3>{{ Auth::user()->name }} {{ Auth::user()->surname }}</h3>
                 <p class="text-800">Registrato il: {{ Auth::user()->created_at }}</p>
                 <p class="text-800">Attivo da: {{ Auth::user()->created_at->diffForHumans() }}</p>
