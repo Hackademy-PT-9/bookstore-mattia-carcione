@@ -21,6 +21,10 @@ class RouteController extends Controller
 
     public function dashboard()
     {
-        return view('template.dashboard', ['books' => Book::all(), 'authors' => Author::all(), 'users' => User::all(), 'count' => self::$count]);
+        return view('dashboards.dash', ['books' => Book::all(), 'authors' => Author::all(), 'users' => User::all(), 'count' => self::$count]);
+    }
+    public function profile()
+    {
+        return view('dashboards.profile');
     }
 }

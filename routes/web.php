@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 //Route
 Route::get('/', [RouteController::class, 'home'])->name('home');
 Route::get('/dashboard', [RouteController::class, 'dashboard'])->name('dashboard');
+Route::get('/dashboard/profilo-utente', [RouteController::class, 'profile'])->name('profile');
 //Route CRUD Book
 Route::resource('books', BookController::class);
 Route::resource('authors', AuthorController::class);
