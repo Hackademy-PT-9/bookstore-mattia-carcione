@@ -41,7 +41,7 @@ class BookController extends Controller
         $path_image = '';
         if ($request->hasFile('image') && $request->file('image')->isValid()) {
             $path_name = $request->file('image')->getClientOriginalName();
-            $path_image = $request->file('image')->storeAs('public/images');
+            $path_image = $request->file('image')->storeAs('/public/storage', $path_name);
         }
 
         Book::create([
@@ -72,7 +72,7 @@ class BookController extends Controller
      */
     public function edit(Book $book)
     {
-        return view('books.edit', compact('book'));
+        return view('books.edit', ['book' => $book, 'authors' => Author::all()]);
     }
 
     /**
@@ -83,10 +83,10 @@ class BookController extends Controller
         $path_image = $book->image;
         if ($request->hasFile('image') && $request->file('image')->isValid()) {
             $path_name = $request->file('image')->getClientOriginalName();
-            $path_image = $request->file('image')->storeAs('public/images');
+            $path_image = $request->file('image')->storeAs('/public/storage', $path_name);
         }
 
-        Book::update([
+        $book->update([
             'title' => $request->title,
             'genre' => $request->genre,
             'image' => $path_image,
@@ -95,10 +95,10 @@ class BookController extends Controller
             'year' => $request->year,
             'price' => $request->price,
             'author_id' => $request->author_id,
-            'uri' => Str::slug($request->name, '-')
+            'uri' => Str::slug($request->title, '-')
         ]);
 
-        return redirect()->route('books.index')->with('success', 'Libro modificato con successo');
+        return redirect()->route('dashboard')->with('success', 'Libro modificato con successo');
     }
 
     /**
@@ -108,6 +108,6 @@ class BookController extends Controller
     {
         $book->delete();
 
-        return redirect()->route('books.index')->with('success', 'Libro eliminato con successo');
+        return redirect()->route('dashboard')->with('success', 'Libro eliminato con successo');
     }
 }

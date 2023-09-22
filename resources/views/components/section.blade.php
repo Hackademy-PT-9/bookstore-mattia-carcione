@@ -23,7 +23,7 @@
                 </div>
             </div>
             <div class="card card-custom col-md-3 ml-auto m-2 text-light"
-            style="background-image: url('/82428247-concetto-di-istruzione-vecchi-libri-su-sfondo-lavagna.jpg');">
+                style="background-image: url('/82428247-concetto-di-istruzione-vecchi-libri-su-sfondo-lavagna.jpg');">
                 <div class="card-body" style="">
                     <h5 class="card-title" style="margin-top: 85%">Categorie</h5>
                     <p class="card-text">Seleziona la categoria</p>
@@ -36,15 +36,14 @@
 
 <section style="background-color: rgba(195, 193, 180, 255);">
 
-    <div class="container col-xxl-8 px-4 py-5 container min-vh-100 d-flex justify-content-center align-items-center">
-        <div class="row flex-lg-row-reverse align-items-center g-5 py-5 bg-img"
-        style="">
-        <div class="col-lg-7 text-justify d-block">
+    <div class="container-fluid col-xxl-8 min-vh-100 d-flex justify-content-center align-items-center">
+<div class="row flex-lg-row-reverse align-items-center gx-5 bg-img" style="padding: 15% 25%">
+            <div class="col-lg-7 text-justify d-block">
                 <h2 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Vuoi vendere un libro?</h2>
                 <p class="lead fw-bold">Registrati ora e inizia a vendere online i tuoi libri.</p>
                 <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-                        <a type="submit" href="{{ route('login') }}" class="btn btn-lg btn-outline-dark me-2">Login</a>
-                        <a type="submit" href="{{ route('register') }}" class="btn btn-lg btn-dark">Registrati</a>
+                    <a type="submit" href="{{ route('login') }}" class="btn btn-lg btn-outline-dark me-2">Login</a>
+                    <a type="submit" href="{{ route('register') }}" class="btn btn-lg btn-dark">Registrati</a>
                 </div>
             </div>
             <div class="col-lg-6 bg-transparent">

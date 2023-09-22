@@ -1,6 +1,33 @@
-<x-layout>
-    <div class="container-fluid d-flex justify-content-center min-vh-100 align-items-center">
-        <div class="row justify-content-center px-5" style="width: 50%">
+<x-auth>
+    <nav class="container py-4">
+        <div class="d-flex flex-wrap align-items-center justify-content-between py-1 mb-1 border-bottom">
+            <div class="col-md-3 mb-md-0 text-start">
+                <a href="{{ route('home') }}"
+                    class="d-inline-flex align-items-center link-body-emphasis text-decoration-none">
+                    <img class="bi rounded" src="\book.jpg" width="40" height="32" role="img">
+                    <span class="fs-4 fw-bold">Bookstore</span>
+                </a>
+            </div>
+
+            <form class=" col-md-3 text-end" action="{{ route('logout') }}" method="POST">
+                @csrf
+                @method('POST')
+                <a href="{{ route('dashboard') }}"
+                    class="d-inline-flex link-body-emphasis text-decoration-none auth-link">
+                    <span>
+                        {{ Auth::user()->name }}
+                    </span>
+                </a>
+
+                <a onclick="event.preventDefault(); this.closest('form').submit();" type="submit">
+                    <i class="fa-solid fa-arrow-right-from-bracket nav-link-custom" style="color: black;"></i>
+                </a>
+            </form>
+        </div>
+    </nav>
+    
+    <div class="container-fluid d-flex justify-content-center align-items-center pb-4">
+        <div class="row justify-content-center row-custom">
             <main>
                 <form class="card-body text-center" action="{{ route('books.store') }}" method="POST"
                     enctype="multipart/form-data">
@@ -85,7 +112,7 @@
                             <label class="form-label" for="description">Descrizione</label>
                             <input type="textarea" id="description"
                                 class="form-control form-control-lg @error('description') is-invalid @enderror"
-                                placeholder="Descrizione del libro" name="description" required
+                                placeholder="Descrizione del libro" name="description"
                                 value="{{ old('description') }}" />
                             @error('description')
                                 {{ $message }}
@@ -96,7 +123,7 @@
                             <label class="form-label" for="typePasswordX">Anno di pubblicazione</label>
                             <input type="date" id="typePasswordX"
                                 class="form-control form-control-lg @error('year') is-invalid @enderror" name="year"
-                                 value="{{ old('year') }}" />
+                                value="{{ old('year') }}" />
                             @error('year')
                                 {{ $message }}
                             @enderror
@@ -106,17 +133,20 @@
                             <label for="password_confirmation" class="form-label">Prezzo</label>
                             <input type="number" name="price"
                                 class="form-control form-control-lg @error('price') is-invalid @enderror"
-                                id="password_confirmation" required placeholder="0-9€" value="{{ old('year') }}" />
+                                id="password_confirmation" required placeholder="0-9€"
+                                value="{{ old('year') }}" />
                             @error('price')
                                 {{ $message }}
                             @enderror
                         </div>
 
-                        <button class="btn btn-outline-dark btn-lg px-5" href="" type="submit">Aggiungi</button>
-                        <a class="btn btn-dark btn-lg px-5" href="{{ route('dashboard') }}" type="submit">Annulla</a>
+                        <button class="btn btn-outline-dark btn-lg px-5" href=""
+                            type="submit">Aggiungi</button>
+                        <a class="btn btn-dark btn-lg px-5" href="{{ route('dashboard') }}"
+                            type="submit">Annulla</a>
                     </div>
                 </form>
             </main>
         </div>
     </div>
-</x-layout>
+</x-auth>

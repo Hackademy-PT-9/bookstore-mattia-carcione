@@ -1,4 +1,4 @@
-<nav class="container-fluid fixed-top">
+<nav class="container-fluid fixed-top gradient-custom">
     <div
         class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-1 mb-1 border-bottom">
         <div class="col-md-3 mb-2 mb-md-0 d-none d-md-block text-center">

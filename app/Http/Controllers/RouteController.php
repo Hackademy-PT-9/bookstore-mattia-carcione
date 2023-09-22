@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 
 class RouteController extends Controller
 {
+    protected static $count = 1;
     public function __construct()
     {
         $this->middleware('auth')->except('home');
@@ -20,6 +21,6 @@ class RouteController extends Controller
 
     public function dashboard()
     {
-        return view('template.dashboard', ['books' => Book::all(), 'authors' => Author::all(), 'users' => User::all()]);
+        return view('template.dashboard', ['books' => Book::all(), 'authors' => Author::all(), 'users' => User::all(), 'count' => self::$count]);
     }
 }

@@ -62,7 +62,7 @@ class AuthorController extends Controller
             'nationality' => $request->nationality,
         ]);
 
-        return redirect()->route('authors.index')->with('success', 'Libro aggiunto con successo');
+        return redirect()->route('dashboard')->with('success', 'Autore aggiunto con successo');
     }
 
     /**
@@ -70,7 +70,7 @@ class AuthorController extends Controller
      */
     public function show(Author $author)
     {
-        return view('authors.show', ['author' => $author]);
+        return view('authors.show', ['author' => $author, 'books' => $author->books]);
     }
 
     /**
@@ -78,7 +78,7 @@ class AuthorController extends Controller
      */
     public function edit(Author $author)
     {
-        //
+        return view('books.edit', ['authors' => Author::all()]);
     }
 
     /**
@@ -86,7 +86,13 @@ class AuthorController extends Controller
      */
     public function update(UpdateAuthorRequest $request, Author $author)
     {
-        //
+        $author->update([
+            'firstname' => $request->firstname,
+            'lastname' => $request->lastname,
+            'nationality' => $request->nationality,
+        ]);
+
+        return redirect()->route('dashboard')->with('success', 'Autore modificato con successo');
     }
 
     /**
@@ -94,6 +100,8 @@ class AuthorController extends Controller
      */
     public function destroy(Author $author)
     {
-        //
+        $author->delete();
+
+        return redirect()->route('dashboard')->with('success', 'Autore eliminato con successo');
     }
 }

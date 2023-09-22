@@ -1,19 +1,26 @@
 @import 'bootstrap';
 
 /* css login */
-.gradient-custom,
-nav,
-footer {
+.gradient-custom {
     background: #F5DEB3;
 }
 
 /* css dashboard */
+.nav-link-custom:hover,
+.i-link-custom:hover {
+    color: grey !important;
+}
+
+.nav-link-custom:hover {
+    text-decoration: underline !important;
+}
+
 td,
 th {
-    width: 25px!important;
-    white-space: nowrap!important;
-    overflow: hidden!important;
-    text-overflow: ellipsis!important;
+    width: 25px !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
 }
 
 /* css navbar */
@@ -26,8 +33,9 @@ th {
     color: white !important;
 }
 
+
 .fa-arrow-right-from-bracket:hover {
-    color: white !important;
+    color: white;
 }
 
 .disabled {
@@ -82,5 +90,10 @@ th {
         background-position: center center;
         background-attachment: fixed;
         padding: 25%;
+    }
+
+    /* css form create/edit */
+    .row-custom {
+        width: 50%;
     }
 }
