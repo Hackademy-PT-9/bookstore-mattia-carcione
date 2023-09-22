@@ -12,7 +12,7 @@
             <form class=" col-md-3 text-end" action="{{ route('logout') }}" method="POST">
                 @csrf
                 @method('POST')
-                <a href="{{ route('dashboard') }}"
+                <a href="{{ route('profile') }}"
                     class="d-inline-flex link-body-emphasis text-decoration-none auth-link">
                     <span>
                         {{ Auth::user()->name }}

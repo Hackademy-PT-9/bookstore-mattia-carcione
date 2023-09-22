@@ -31,15 +31,15 @@
                     <div class="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
                         <ul class="nav flex-column">
                             <li class="nav-item " aria-current="page">
-                                <a class="nav-link @if (Route::currentRouteName() == 'dashboard') rounded-end bg-secondary w-50 text-light disabled @endif d-flex align-items-center gap-2 active text-dark"
-                                aria-current="page" href="{{ route('dashboard') }}">
-                                    Dashboard
-                                </a>
-                            </li>
-                            <li class="nav-item " aria-current="page">
                                 <a class="nav-link @if (Route::currentRouteName() == 'profile') rounded-end bg-secondary w-50 text-light disabled @endif d-flex align-items-center gap-2 active text-dark"
                                 aria-current="page" href="{{ route('profile') }}">
                                     Profilo
+                                </a>
+                            </li>
+                            <li class="nav-item " aria-current="page">
+                                <a class="nav-link @if (Route::currentRouteName() == 'dashboard') rounded-end bg-secondary w-50 text-light disabled @endif d-flex align-items-center gap-2 active text-dark"
+                                aria-current="page" href="{{ route('dashboard') }}">
+                                    Dashboard
                                 </a>
                             </li>
                         </ul>
@@ -113,7 +113,7 @@
                                 Ciao,
                             </span>
 
-                            <a href="{{ route('dashboard') }}"
+                            <a href="{{ route('profile') }}"
                                 class="d-inline-flex link-body-emphasis text-decoration-none auth-link">
                                 <span>
                                     {{ Auth::user()->name }}
