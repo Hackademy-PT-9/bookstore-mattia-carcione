@@ -134,7 +134,7 @@
 
                         <div class="form-outline form-white mb-4 text-start">
                             <label for="password_confirmation" class="form-label">Prezzo</label>
-                            <input type="number" name="price"
+                            <input type="number" name="price"  min="1"
                                 class="form-control form-control-lg @error('price') is-invalid @enderror"
                                 id="password_confirmation" required placeholder="0-9€"
                                 value="{{ $book->price }}" />
@@ -144,7 +144,7 @@
                         </div>
 
                         <button class="btn btn-outline-dark btn-lg px-5" href=""
-                            type="submit">Aggiungi</button>
+                            type="submit">Modifica</button>
                         <a class="btn btn-dark btn-lg px-5" href="{{ route('dashboard') }}">Annulla</a>
                     </div>
                 </form>

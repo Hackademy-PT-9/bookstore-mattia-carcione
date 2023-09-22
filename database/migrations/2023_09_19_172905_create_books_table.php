@@ -18,7 +18,7 @@ return new class extends Migration {
             $table->integer('pages')->nullable()->default(1);
             $table->mediumText('description')->nullable();
             $table->string('year')->nullable();
-            $table->integer('price');
+            $table->float('price');
             $table->timestamps();
         });
     }
