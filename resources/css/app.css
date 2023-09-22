@@ -99,4 +99,13 @@ th {
     .row-custom {
         width: 50%;
     }
+
+    /* css dashboard */
+    .btn-edit {
+        display: block!important;
+    }
+
+    .icon-edit {
+        display: none!important;
+    }
 }

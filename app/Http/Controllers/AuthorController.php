@@ -78,7 +78,7 @@ class AuthorController extends Controller
      */
     public function edit(Author $author)
     {
-        return view('books.edit', ['authors' => Author::all()]);
+        return view('authors.edit', ['author' => $author, 'nationalities' => self::$nationalities]);
     }
 
     /**

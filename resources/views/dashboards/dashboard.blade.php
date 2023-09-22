@@ -44,16 +44,16 @@
                     <tr>
                         <td class="p-3">{{ $count++ }}</td>
                         <td class="p-3">
-                            <a href="{{ route('books.show', compact('book')) }}"
+                        <a href="{{ route('books.show', compact('book')) }}"
                                 class="nav-link-custom text-decoration-none d-flex align-items-center gap-2 text-dark">
                                 {{ $book->title }}
                             </a>
                         </td>
 
                         <td class="p-3">
-                            <a href="{{ route('authors.show', ['author' => $book->author->id]) }}"
+                            <a href="{{ route('authors.edit', ['author' => $book->author->id]) }}"
                                 class="nav-link-custom text-decoration-none d-flex align-items-center gap-2 text-dark">{{ $book->author->firstname }}
-                                {{ $book->author->lastname }}
+                                {{ $book->author->lastname }} <span><i class="fa-solid fa-pen-to-square"></i></span>
                             </a>
                         </td>
                         <td class="p-3">{{ $book->genre }}
@@ -78,8 +78,9 @@
                         </td>
                         <td class="p-3">{{ $book->price }}€</td>
                         <td class="text-center align-middle">
-                            <a href="{{ route('books.edit', compact('book')) }}"
-                                class="btn btn-sm btn-warning">Modifica
+                            <a href="{{ route('books.edit', compact('book')) }}" class="btn btn-sm btn-warning"><i
+                                    class="fa-solid fa-pen-to-square icon-edit"></i>
+                                <span class="d-none btn-edit">Modifica</span>
                             </a>
                         </td>
                         <td class="text-center align-middle">
@@ -87,8 +88,11 @@
                                 action="{{ route('books.destroy', compact('book')) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <button class="btn btn-sm btn-danger" type="submit">
+                                <button class="btn btn-sm btn-danger d-none d-md-block" type="submit">
                                     Elimina
+                                </button>
+                                <button class="btn btn-sm btn-danger d-block d-md-none" type="submit">
+                                    <i class="fa-solid fa-trash-can" style="color: #ffffff;"></i>
                                 </button>
                             </form>
                         </td>

@@ -1,3 +1,3 @@
-<x-layout>
+<x-crud>
     
-</x-layout>
+</x-crud>
