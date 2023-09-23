@@ -20,7 +20,14 @@
             </div>
 
             <div class="col-md-9">
-                <h2> {{ Auth::user()->name }} {{ Auth::user()->surname }}</h2>
+                <div class="d-flex">
+                    <h2> {{ Auth::user()->name }} {{ Auth::user()->surname }} </h2>
+                        <a href="{{ route('user.edit') }}"
+                            class="nav-link-custom text-decoration-none d-flex align-items-center gap-2 text-dark"> <i
+                                class="fa-solid fa-pen-to-square"></i>
+                        </a>
+                </div>
+
                 <p class="text-800">Registrato il: {{ Auth::user()->created_at }}</p>
                 <p class="text-800">Attivo da: {{ Auth::user()->created_at->diffForHumans() }}</p>
                 <p><strong>Email:</strong> {{ Auth::user()->email }} </p>

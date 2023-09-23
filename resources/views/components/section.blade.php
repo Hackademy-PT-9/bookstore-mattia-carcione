@@ -37,7 +37,7 @@
 <section style="background-color: rgba(195, 193, 180, 255);">
 
     <div class="container-fluid col-xxl-8 min-vh-100 d-flex justify-content-center align-items-center">
-<div class="row flex-lg-row-reverse align-items-center gx-5 bg-img" style="padding: 15% 25%">
+<div class="row flex-lg-row-reverse align-items-center gx-5 bg-img" >
             <div class="col-lg-7 text-justify d-block">
                 <h2 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Vuoi vendere un libro?</h2>
                 <p class="lead fw-bold">Registrati ora e inizia a vendere online i tuoi libri.</p>
