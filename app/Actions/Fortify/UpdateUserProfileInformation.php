@@ -78,10 +78,8 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
                 // 'facebook' => $input['facebook'],
                 'description' => $input['description'],
             ])->save();
-
         }
     }
-
     /**
      * Update the given verified user's profile information.
      *
