@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-md-3 text-center">
                 <img src="{{ Storage::url(Auth::user()->image) }}" alt="Immagine Profilo"
-                    class="img-thumbnail rounded-circle mb-5" style="width: 10rem; height: 10rem">
+                    class="img-thumbnail border-primary rounded-circle mb-5" style="width: 10rem; height: 10rem">
                 <div>
                     <a href="{{ route('user.edit') }}" class="btn btn-dark text-decoration-none">MODIFICA</a>
                 </div>
