@@ -14,9 +14,9 @@
                 <p class="text-800">Registrato il: {{ Auth::user()->created_at }}</p>
                 <p class="text-800">Attivo da: {{ Auth::user()->created_at->diffForHumans() }}</p>
                 <p><strong>Email:</strong> {{ Auth::user()->email }} </p>
-                <p><strong>Data di Nascita:</strong> {{ Auth::user()->birth_date }} </p>
+                <p><strong>Data di Nascita:</strong> {{ Auth::user()->birthday }} </p>
                 <p><strong>Indirizzo:</strong> {{ Auth::user()->address }} </p>
-                <p><strong>Provincia:</strong> {{ Auth::user()->province }} </p>
+                <p><strong>Provincia:</strong> {{ Auth::user()->country }} </p>
                 <p><strong>Città:</strong> {{ Auth::user()->city }} </p>
                 <p><strong>Stato:</strong> {{ Auth::user()->state }} </p>
                 <p><strong>Descrizione:</strong> {{ Auth::user()->description }} </p>
