@@ -24,7 +24,6 @@ return new class extends Migration {
             $table->string('twitter')->nullable();
             $table->string('linkedin')->nullable();
             $table->string('instagram')->nullable();
-            $table->string('whatsapp')->nullable();
             $table->string('github')->nullable();
             $table->string('facebook')->nullable();
             $table->mediumText('description')->nullable();
@@ -51,7 +50,6 @@ return new class extends Migration {
                 'twitter',
                 'linkedin',
                 'instagram',
-                'whatsapp',
                 'github',
                 'facebook',
                 'description',

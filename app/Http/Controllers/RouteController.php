@@ -9,6 +9,37 @@ use Illuminate\Http\Request;
 
 class RouteController extends Controller
 {
+    protected static $nationalities = [
+        'italian' => 'Italia',
+        'american' => 'America',
+        'british' => 'Inghilterra',
+        'canadian' => 'Canada',
+        'swedish' => 'Svezia',
+        'austrian' => 'Austria',
+        'polish' => 'Polonia',
+        'romanian' => 'Romania',
+        'portuguese' => 'Portogallo',
+        'russian' => 'Russia',
+        'finnish' => 'Finlandia',
+        'swiss' => 'Svizzera',
+        'norwegian' => 'Norvegia',
+        'greek' => 'Grecia',
+        'croatian' => 'Croazia',
+        'czech' => 'Repubblica Ceca',
+        'belgian' => 'Belgio',
+        'german' => 'Germania',
+        'chinese' => 'Cina',
+        'japanese' => 'Giappone',
+        'spanish' => 'Spagna',
+        'french' => 'Franciae',
+        'hungarian' => 'Ungheria',
+        'dutch' => 'Olanda',
+        'danoio' => 'Danimarca',
+        'nyoro' => 'Irlanda',
+        'egyptian' => 'Egitto',
+        'celloso' => 'Scozia',
+        'prussia' => 'Prussia',
+    ];
     protected static $count = 1;
     public function __construct()
     {
@@ -26,5 +57,10 @@ class RouteController extends Controller
     public function profile()
     {
         return view('dashboards.profile');
+    }
+
+    public function profileEdit()
+    {
+        return view('user.edit', ['user' => auth()->user(), 'states' => self::$nationalities]);
     }
 }
