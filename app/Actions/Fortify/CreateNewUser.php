@@ -31,10 +31,31 @@ class CreateNewUser implements CreatesNewUsers
             'password' => $this->passwordRules(),
         ])->validate();
 
+        $path_image = '';
+        if (isset($input['image']) && $input['image']->isValid()) {
+            $path_name = $input['image']->getClientOriginalName();
+            $path_image = $input['image']->storeAs('public/storage', $path_name);
+        }
+
         return User::create([
             'name' => $input['name'],
             'surname' => $input['surname'],
             'email' => $input['email'],
+            'gender' => $input['gender'],
+            'birthday' => $input['birthday'],
+            'image' => $path_image,
+            'phone' => $input['phone'],
+            'address' => $input['address'],
+            'city' => $input['city'],
+            'country' => $input['country'],
+            'state' => $input['state'],
+            'skype' => $input['skype'],
+            'twitter' => $input['twitter'],
+            'linkedin' => $input['linkedin'],
+            'instagram' => $input['instagram'],
+            'github' => $input['github'],
+            'facebook' => $input['facebook'],
+            'description' => $input['description'],
             'password' => Hash::make($input['password']),
         ]);
     }

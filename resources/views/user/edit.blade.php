@@ -51,7 +51,7 @@
                     <label class="form-label" for="birthday">Anno di nascita</label>
                     <input type="date" id="birthday"
                         class="form-control form-control-lg @error('birthday') is-invalid @enderror" name="birthday"
-                    value="{{ $user->birthday }}" />
+                        value="{{ $user->birthday }}" />
                     @error('birthday')
                         {{ $message }}
                     @enderror
@@ -61,9 +61,6 @@
                     <select type="text" id="state"
                         class="form-control form-control-lg @error('state') is-invalid @enderror" placeholder="Stato"
                         name="state" value="{{ $user->state }}">
-                        <option value="">
-                            --Seleziona
-                        </option>
                         @foreach ($states as $state)
                             <option value="{{ $state }}">
                                 {{ $state }}
@@ -76,21 +73,13 @@
                 </div>
                 <div class="d-md-flex flex-column a mb-4 py-2 col-2">
 
-                    <div class="form-check form-check-inline mb-0 me-4 text-start">
-                        <input class="form-check-input" type="radio" name="gender" id="femaleGender"
-                            value="female" />
-                        <label class="form-check-label" for="femaleGender">F</label>
-                    </div>
-
-                    <div class="form-check form-check-inline mb-0 me-4 text-start">
-                        <input class="form-check-input" type="radio" name="gender" id="maleGender" value="male" />
-                        <label class="form-check-label" for="maleGender">M</label>
-                    </div>
-
-                    <div class="form-check form-check-inline mb-0 text-start">
-                        <input class="form-check-input" type="radio" name="gender" id="otherGender" value="other" />
-                        <label class="form-check-label" for="otherGender">Altro</label>
-                    </div>
+                    @foreach ($genders as $gender)
+                        <div class="form-check form-check-inline mb-0 me-4 text-start">
+                            <input class="form-check-input" type="radio" name="gender" id="gender"
+                                value="{{ $gender }}" @checked($user->gender == $gender) />
+                            <label class="form-check-label" for="gender">{{ $gender }}</label>
+                        </div>
+                    @endforeach
                 </div>
 
             </div>

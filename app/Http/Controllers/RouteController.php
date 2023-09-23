@@ -9,6 +9,11 @@ use Illuminate\Http\Request;
 
 class RouteController extends Controller
 {
+    protected static $genders = [
+        'Maschio',
+        'Femmina',
+        'Altro'
+    ];
     protected static $nationalities = [
         'italian' => 'Italia',
         'american' => 'America',
@@ -61,6 +66,6 @@ class RouteController extends Controller
 
     public function profileEdit()
     {
-        return view('user.edit', ['user' => auth()->user(), 'states' => self::$nationalities]);
+        return view('user.edit', ['user' => auth()->user(), 'states' => self::$nationalities, 'genders' => self::$genders]);
     }
 }

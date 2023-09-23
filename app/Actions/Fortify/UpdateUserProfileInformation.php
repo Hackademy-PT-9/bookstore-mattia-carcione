@@ -17,6 +17,14 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
      */
     public function update(User $user, array $input): void
     {
+
+        // dd($user);
+        $path_image = $user->image;
+        if (isset($input['image'])) {
+            // Se è stato fornito un nuovo file immagine, salvalo e aggiorna il percorso
+            $path_image = $input['image']->store('public/storage');
+        }
+
         Validator::make($input, [
             'name' => ['required', 'string', 'max:255'],
 
@@ -29,7 +37,7 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
             ],
             'image' => ['nullable', 'mimes:jpg,jpeg,png', 'max:1024'],
             'address' => ['nullable', 'string', 'max:255'],
-            'birthday' => ['nullable', 'date'],
+            'birthday' => ['nullable', 'string'],
             'phone' => ['nullable', 'string', 'max:255'],
             'gender' => ['nullable', 'string', 'max:255'],
             'city' => ['nullable', 'string',],
@@ -54,6 +62,21 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
             $user->forceFill([
                 'name' => $input['name'],
                 'email' => $input['email'],
+                'gender' => $input['gender'],
+                'birthday' => $input['birthday'],
+                'image' => $path_image,
+                // 'phone' => $input['phone'],
+                'address' => $input['address'],
+                'city' => $input['city'],
+                'country' => $input['country'],
+                'state' => $input['state'],
+                // 'skype' => $input['skype'],
+                // 'twitter' => $input['twitter'],
+                // 'linkedin' => $input['linkedin'],
+                // 'instagram' => $input['instagram'],
+                // 'github' => $input['github'],
+                // 'facebook' => $input['facebook'],
+                'description' => $input['description'],
             ])->save();
 
         }
