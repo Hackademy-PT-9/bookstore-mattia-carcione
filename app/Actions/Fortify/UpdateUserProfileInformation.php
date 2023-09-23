@@ -21,8 +21,8 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
         // dd($user);
         $path_image = $user->image;
         if (isset($input['image'])) {
-            // Se è stato fornito un nuovo file immagine, salvalo e aggiorna il percorso
-            $path_image = $input['image']->store('public/storage');
+            $path_name = $input['image']->getClientOriginalName();
+            $path_image = $input['image']->storeAs('public/storage', $path_name);
         }
 
         Validator::make($input, [
@@ -79,6 +79,8 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
                 'description' => $input['description'],
             ])->save();
         }
+
+        redirect()->route('dashboard')->with('success', 'Profilo aggiornato con successo');
     }
     /**
      * Update the given verified user's profile information.

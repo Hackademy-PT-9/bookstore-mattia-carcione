@@ -1,6 +1,17 @@
 <x-crud>
-    <form class="card-body text-center pb-3" action="{{ route('user-profile-information.update', $user) }}" method="POST"
-        enctype="multipart/form-data">
+    @if (session('success'))
+        <div class="alert alert-success d-flex align-items-center" role="alert">
+            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:">
+                <use xlink:href="#check-circle-fill" />
+            </svg>
+            <div>
+                {{ session('success') }}
+            </div>
+        </div>
+        <a href="{{ route('profile') }}" class="btn btn-dark">Torna al tuo profilo</a>
+    @endif
+    <form class="card-body text-center pb-3" action="{{ route('user-profile-information.update', $user) }}"
+        method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <div class="d-flex justify-content-start">
@@ -87,7 +98,7 @@
 
 
             <div class="mb-3 mx-auto text-start">
-                <img class="card-img-top rounded-circle mb-5 mb-md-0 mx-auto" style="width:10rem"
+                <img class="img-thumbnail rounded-circle" style="width:10rem; height: 10rem"
                     src="{{ empty($user->image) ? '/assets/images/default.jpg' : Storage::url($user->image) }}"
                     alt="..." />
             </div>
