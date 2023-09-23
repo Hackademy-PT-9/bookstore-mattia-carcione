@@ -1,4 +1,5 @@
 <x-crud>
+
     <form class="card-body text-center pb-3" action="{{ route('users.update') }}" method="POST"
     enctype="multipart/form-data">
     @csrf
@@ -18,7 +19,7 @@
             <label class="form-label" for="title">Titolo <span class="text-danger">*</span></label>
             <input type="text" id="title"
                 class="form-control form-control-lg @error('title') is-invalid @enderror"
-            placeholder="Titolo del libro" name="title" required value="{{ Auth::user()->name }}" />
+            placeholder="Titolo del libro" name="title" required value="{{ $user->name }}" />
             @error('title')
                 {{ $message }}
             @enderror
@@ -42,7 +43,7 @@
 
         <div class="mb-3 mx-auto text-start">
             <img class="card-img-top mb-5 mb-md-0 mx-auto" style="width:10rem"
-                src="{{ empty($book->image) ? '/assets/images/default.jpg' : Storage::url($book->image) }}"
+                src="{{ empty($user->image) ? '/assets/images/default.jpg' : Storage::url($user->image) }}"
                 alt="..." />
         </div>
 
@@ -60,7 +61,7 @@
             <label class="form-label" for="genre">Genere <span class="text-danger">*</span></label>
             <input type="text" id="genre"
                 class="form-control form-control-lg @error('genre') is-invalid @enderror"
-                placeholder="Genere del libro" name="genre" value="" />
+                placeholder="Genere del libro" name="genre" value="{{ $user->surname}}" />
             @error('genre')
                 {{ $message }}
             @enderror
