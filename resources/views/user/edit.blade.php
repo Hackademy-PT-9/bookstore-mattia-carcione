@@ -48,11 +48,11 @@
 
             <div class="row">
                 <div class="form-outline form-white mb-4 text-start col-5">
-                    <label class="form-label" for="typePasswordX">Anno di nascita</label>
-                    <input type="date" id="typePasswordX"
-                        class="form-control form-control-lg @error('year') is-invalid @enderror" name="year"
-                        value="" />
-                    @error('year')
+                    <label class="form-label" for="birthday">Anno di nascita</label>
+                    <input type="date" id="birthday"
+                        class="form-control form-control-lg @error('birthday') is-invalid @enderror" name="birthday"
+                    value="{{ $user->birthday }}" />
+                    @error('birthday')
                         {{ $message }}
                     @enderror
                 </div>
