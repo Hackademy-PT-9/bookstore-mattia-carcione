@@ -1,7 +1,7 @@
 <x-crud>
 
-    <form class="card-body text-center pb-3" action="{{ route('user-profile-information.update', $user) }}"
-        method="POST" enctype="multipart/form-data">
+    <form class="card-body text-center pb-3" action="{{ route('user-profile-information.update', $user) }}" method="POST"
+        enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <div class="d-flex justify-content-start">
@@ -14,6 +14,22 @@
             <h2 class="fw-bold mb-2 pb-4 text-uppercase d-flex justify-content-center align-items-center">
                 Modifica informazioni utente
             </h2>
+
+            <div class="mb-3 mx-auto text-start">
+                <img class="img-thumbnail rounded-circle" style="width:10rem; height: 10rem"
+                    src="{{ empty($user->image) ? '/assets/images/default.jpg' : Storage::url($user->image) }}"
+                    alt="..." />
+            </div>
+
+            <div class="form-outline form-white mb-4 text-start">
+                <label class="form-label" for="image">Immagine profilo</label>
+                <input type="file" id="image"
+                    class="form-control form-control-lg @error('image') is-invalid @enderror" name="image"
+                    value="" />
+                @error('image')
+                    {{ $message }}
+                @enderror
+            </div>
 
             <div class="form-outline d-flex justify-content-between form-white mb-4 text-start">
                 <div class="col-6 px-1">
@@ -87,21 +103,7 @@
 
 
 
-            <div class="mb-3 mx-auto text-start">
-                <img class="img-thumbnail rounded-circle" style="width:10rem; height: 10rem"
-                    src="{{ empty($user->image) ? '/assets/images/default.jpg' : Storage::url($user->image) }}"
-                    alt="..." />
-            </div>
-
-            <div class="form-outline form-white mb-4 text-start">
-                <label class="form-label" for="image">Immagine profilo</label>
-                <input type="file" id="image"
-                    class="form-control form-control-lg @error('image') is-invalid @enderror" name="image"
-                    value="" />
-                @error('image')
-                    {{ $message }}
-                @enderror
-            </div>
+            
 
             <div class="row">
                 <div class="form-outline form-white mb-4 text-start col-4">

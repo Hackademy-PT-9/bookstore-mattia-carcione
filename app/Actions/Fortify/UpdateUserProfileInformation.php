@@ -18,12 +18,7 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
     public function update(User $user, array $input): void
     {
 
-        // dd($user);
-        $path_image = $user->image;
-        if (isset($input['image'])) {
-            $path_name = $input['image']->getClientOriginalName();
-            $path_image = $input['image']->storeAs('public/storage', $path_name);
-        }
+        
 
         Validator::make($input, [
             'name' => ['required', 'string', 'max:255'],
@@ -52,6 +47,12 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
             'facebook' => ['nullable', 'string', 'max:255'],
             'description' => ['nullable', 'string', 'max:255'],
         ])->validateWithBag('updateProfileInformation');
+
+        $path_image = $user->image;
+        if (isset($input['image'])) {
+            $path_name = $input['image']->getClientOriginalName();
+            $path_image = $input['image']->storeAs('public/storage', $path_name);
+        }
 
         if (
             $input['email'] !== $user->email &&
