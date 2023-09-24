@@ -26,57 +26,57 @@
         <table class="table table-striped table-sm">
             <thead>
                 <tr>
-                    <th scope="col" class="p-3">#</th>
-                    <th scope="col" class="p-3">Titolo</th>
-                    <th scope="col" class="p-3">Autore</th>
-                    <th scope="col" class="p-3">Genere</th>
-                    <th scope="col" class="p-3">Descrizione</th>
-                    <th scope="col" class="p-3">Anno di pubblicazione</th>
-                    <th scope="col" class="p-3">N. di pagine</th>
-                    <th scope="col" class="p-3">Prezzo</th>
-                    <th scope="col" class="p-3"></th>
-                    <th scope="col" class="p-3"></th>
+                    <th scope="col-md-1" class="py-3">#</th>
+                    <th scope="col-md-1" class="py-3">Titolo</th>
+                    <th scope="col-md-1" class="py-3">Autore</th>
+                    <th scope="col-md-1" class="py-3 d-none d-md-table-cell">Genere</th>
+                    <th scope="col-md-1" class="py-3 d-none d-md-table-cell">Descrizione</th>
+                    <th scope="col-md-1" class="py-3 d-none d-md-table-cell">Anno di pubblicazione</th>
+                    <th scope="col-md-1" class="py-3 d-none d-md-table-cell">N. di pagine</th>
+                    <th scope="col-md-1" class="py-3 d-none d-md-table-cell">Prezzo</th>
+                    <th scope="col-md-1" class="py-3"></th>
+                    <th scope="col-md-1" class="py-3"></th>
                 </tr>
             </thead>
 
             <tbody>
                 @foreach ($books as $book)
                     <tr>
-                        <td class="p-3">{{ $count++ }}</td>
-                        <td class="p-3">
-                        <a href="{{ route('books.show', compact('book')) }}"
+                        <td class="py-3 col-md-1">{{ $count++ }}</td>
+                        <td class="py-3 col-md-1">
+                            <a href="{{ route('books.show', compact('book')) }}"
                                 class="nav-link-custom text-decoration-none d-flex align-items-center gap-2 text-dark">
-                                {{ $book->title }}
+                                {{ $book->title }} <span><i class="fa-solid fa-magnifying-glass"></i></span>
                             </a>
                         </td>
 
-                        <td class="p-3">
+                        <td class="py-3 col-md-1">
                             <a href="{{ route('authors.edit', ['author' => $book->author->id]) }}"
                                 class="nav-link-custom text-decoration-none d-flex align-items-center gap-2 text-dark">{{ $book->author->firstname }}
                                 {{ $book->author->lastname }} <span><i class="fa-solid fa-pen-to-square"></i></span>
                             </a>
                         </td>
-                        <td class="p-3">{{ $book->genre }}
+                        <td class="py-3 col-md-1 d-none d-md-table-cell">{{ $book->genre }}
                             @if (!$book->genre)
                                 /
                             @endif
                         </td>
-                        <td class="p-3">{{ $book->description }}
+                        <td class="py-3 col-md-1 d-none d-md-table-cell">{{ $book->description }}
                             @if (!$book->description)
                                 /
                             @endif
                         </td>
-                        <td class="p-3">{{ $book->year }}
+                        <td class="py-3 col-md-1 d-none d-md-table-cell">{{ $book->year }}
                             @if (!$book->year)
                                 /
                             @endif
                         </td>
-                        <td class="p-3">{{ $book->pages }}
+                        <td class="py-3 col-md-1 d-none d-md-table-cell">{{ $book->pages }}
                             @if (!$book->pages)
                                 /
                             @endif
                         </td>
-                        <td class="p-3">{{ $book->price }}€</td>
+                        <td class="py-3 col-md-1 d-none d-md-table-cell">{{ $book->price }}€</td>
                         <td class="text-center align-middle">
                             <a href="{{ route('books.edit', compact('book')) }}" class="btn btn-sm btn-warning"><i
                                     class="fa-solid fa-pen-to-square icon-edit"></i>

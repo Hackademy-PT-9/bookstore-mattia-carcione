@@ -108,4 +108,9 @@ th {
     .icon-edit {
         display: none!important;
     }
+
+    /* css show */
+    .margin-show {
+        margin-top: 5%!important;
+    }
 }

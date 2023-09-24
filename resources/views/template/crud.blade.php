@@ -16,16 +16,7 @@
 <body>
     <x-nav_crud />
 
-    <div class="container-fluid d-flex justify-content-center align-items-center">
-        <div class="row justify-content-center row-custom">
-            <main>
-
-                {{ $slot }}
-
-            </main>
-        </div>
-    </div>
-
+    {{ $slot }}
 </body>
 
 </html>
