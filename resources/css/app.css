@@ -33,7 +33,7 @@ th {
     color: white !important;
 }
 
-.link-underline-dark{
+.link-underline-dark {
     text-decoration: underline;
 }
 
@@ -69,6 +69,16 @@ th {
     background-color: #F0F0F0
 }
 
+/* css book.show */
+.trans-scale {
+    transition: 1.5s;
+    transform: scale(1);
+}
+
+.trans-scale:hover {
+    transform: scale(1.1);
+}
+
 /* mediaquery */
 @media screen and (min-width: 992px) {
 
@@ -102,15 +112,24 @@ th {
 
     /* css dashboard */
     .btn-edit {
-        display: block!important;
+        display: block !important;
     }
 
     .icon-edit {
-        display: none!important;
+        display: none !important;
     }
 
     /* css show */
     .margin-show {
-        margin-top: 5%!important;
+        margin-top: 5% !important;
+    }
+
+    .div-show-book {
+        width: 25rem;
+        height: 35rem;
+    }
+
+    .div-show-random {
+        justify-content: center !important;
     }
 }

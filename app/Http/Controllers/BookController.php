@@ -64,7 +64,7 @@ class BookController extends Controller
      */
     public function show(Book $book)
     {
-        return view('books.show', ['book' => $book, 'books' => Book::all()]);
+        return view('books.show', ['book' => $book, 'books' => Book::inRandomOrder()->limit(4)->get()]);
     }
 
     /**

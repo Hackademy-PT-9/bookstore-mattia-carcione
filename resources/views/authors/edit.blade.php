@@ -13,7 +13,7 @@
 
                     <div class="mb-md-4 mt-md-4 pb-1">
                         <h2 class="fw-bold mb-2 text-uppercase d-flex justify-content-center align-items-center">
-                            Modifica Autore
+                            Modifica le informazioni dell' Autore
                         </h2>
 
                         <div class="form-outline form-white mb-4 text-start">
@@ -42,10 +42,11 @@
                             <label class="form-label" for="nationality">Nazionalità</label>
                             <select type="text" id="nationality"
                                 class="form-select form-select-lg @error('nationality') is-invalid @enderror"
-                                placeholder="Autore" name="nationality" value="{{ old('nationality') }}">
+                                placeholder="Autore" name="nationality" value="">
                                 @foreach ($nationalities as $nationality)
-                                    <option value="{{ $nationality }}" class="p-3">
-                                        {{ $author->nationality }}
+                                    <option @if ($nationality == $author->nationality) selected @endif
+                                        value="{{ $nationality }}" class="p-3">
+                                        {{ $nationality }}
                                     </option>
                                 @endforeach
                             </select>

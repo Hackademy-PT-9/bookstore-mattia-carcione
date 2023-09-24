@@ -21,7 +21,7 @@
 
             <div class="col-md-9">
                 <div class="d-flex">
-                    <h2> {{ Auth::user()->name }} {{ Auth::user()->surname }} </h2>
+                    <h2 class="pe-2"> {{ Auth::user()->name }} {{ Auth::user()->surname }} </h2>
                         <a href="{{ route('user.edit') }}"
                             class="nav-link-custom text-decoration-none d-flex align-items-center gap-2 text-dark"> <i
                                 class="fa-solid fa-pen-to-square"></i>

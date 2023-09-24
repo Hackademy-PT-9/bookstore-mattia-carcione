@@ -1,6 +1,10 @@
 <x-dashboard>
-    <h2 class="text-dark py-5">Dashboard</h2>
 
+    <div class="d-flex justify-content-between py-5">
+        <h2 class="text-dark ">Dashboard</h2>
+        <button class="btn btn-success" type="button"><a class="text-decoration-none text-light"
+                href="{{ route('books.create') }}">Aggiungi un libro</a></button>
+    </div>
     @if (session('success') != 'Libro eliminato con successo' && session('success'))
         <div class="alert alert-success d-flex align-items-center" role="alert">
             <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:">

@@ -15,7 +15,7 @@
 
                     <div class="mb-md-4 mt-md-4 pb-1">
                         <h2 class="fw-bold mb-2 text-uppercase d-flex justify-content-center align-items-center">
-                            Metti in vendita
+                            Aggiorna le informazioni del libro
                         </h2>
 
                         <div class="form-outline form-white mb-4 text-start">
