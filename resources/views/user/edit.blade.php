@@ -2,8 +2,8 @@
     <div class="container-fluid d-flex justify-content-center align-items-center">
         <div class="row justify-content-center row-custom">
             <main>
-                <form class="card-body text-center pb-3" action="{{ route('user-profile-information.update', $user) }}"
-                    method="POST" enctype="multipart/form-data">
+                <form class="card-body text-center pb-3" action="{{ route('user.update', $user) }}" method="POST"
+                    enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="d-flex justify-content-start">
@@ -38,7 +38,7 @@
                                 <label class="form-label" for="name">Nome <span class="text-danger">*</span></label>
                                 <input type="text" id="name"
                                     class="form-control form-control-lg @error('name') is-invalid @enderror"
-                                    placeholder="Nome" name="name" required value="{{ $user->name }}" />
+                                    placeholder="Nome" name="name" value="{{ $user->name }}" />
                                 @error('name')
                                     {{ $message }}
                                 @enderror
@@ -105,10 +105,6 @@
 
                         </div>
 
-
-
-
-
                         <div class="row">
                             <div class="form-outline form-white mb-4 text-start col-4">
                                 <label class="form-label" for="address">Indirizzo</label>
@@ -144,7 +140,6 @@
                             <textarea class="form-control" type="textarea" id="description"
                                 class="form-control form-control-lg @error('description') is-invalid @enderror" placeholder="Descriviti"
                                 name="description" style="height: 100px">{{ $user->description }}</textarea>
-
                             @error('description')
                                 {{ $message }}
                             @enderror

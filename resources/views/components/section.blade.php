@@ -11,7 +11,8 @@
                 <div class="card-body" style="">
                     <h5 class="card-title" style="margin-top: 85%">Libri</h5>
                     <p class="card-text">Sfoglia i nostri libri</p>
-                    <a href="#" class="btn btn-primary text-dark border-custom">Acquista ora</a>
+                    <a href="{{ route('books.index') }}" class="btn btn-primary text-dark border-custom">Acquista
+                        ora</a>
                 </div>
             </div>
             <div class="card card-custom col-md-3 ml-auto m-2 text-light"
@@ -19,7 +20,8 @@
                 <div class="card-body" style="">
                     <h5 class="card-title" style="margin-top: 85%">Autori</h5>
                     <p class="card-text">Scopri gli autori</p>
-                    <a href="#" class="btn btn-primary text-dark border-custom">Acquista ora</a>
+                    <a href="{{ route('authors.index') }}" class="btn btn-primary text-dark border-custom">Acquista
+                        ora</a>
                 </div>
             </div>
             <div class="card card-custom col-md-3 ml-auto m-2 text-light"
@@ -37,7 +39,7 @@
 <section style="background-color: rgba(195, 193, 180, 255);">
 
     <div class="container-fluid col-xxl-8 min-vh-100 d-flex justify-content-center align-items-center">
-<div class="row flex-lg-row-reverse align-items-center gx-5 bg-img" >
+        <div class="row flex-lg-row-reverse align-items-center gx-5 bg-img">
             <div class="col-lg-7 text-justify d-block">
                 <h2 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Vuoi vendere un libro?</h2>
                 <p class="lead fw-bold">Registrati ora e inizia a vendere online i tuoi libri.</p>

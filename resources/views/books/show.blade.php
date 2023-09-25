@@ -19,10 +19,10 @@
                                         {{ $book->author->lastname }}</strong></a>
                             </p>
                             <p class="lead">
-                                Genere: <strong>{{ $book->genre }}</strong>
+                                Genere: {{ $book->genre }}
                             </p>
                             <p class="lead">
-                                Descrizione: <br>
+                                Descrizione:
                                 @if (!empty($book->description))
                                     {{ $book->description }}
                                 @else

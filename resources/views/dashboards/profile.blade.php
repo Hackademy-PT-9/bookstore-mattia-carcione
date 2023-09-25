@@ -9,36 +9,128 @@
             </div>
         </div>
     @endif
-    <div class="container-fluid mt-5">
-        <div class="row">
-            <div class="col-md-3 text-center">
-                <img src="{{ Storage::url(Auth::user()->image) }}" alt="Immagine Profilo"
-                    class="img-thumbnail border-primary rounded-circle mb-5" style="width: 10rem; height: 10rem">
-                <div>
-                    <a href="{{ route('user.edit') }}" class="btn btn-dark text-decoration-none">MODIFICA</a>
+    <section class="height-profile" style="background-color: #eee;">
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="card mb-4">
+                        <div class="card-body text-center">
+                            <img src="{{ Storage::url(Auth::user()->image) }}" alt="avatar"
+                                class="rounded-circle img-thumbnail border-primary img-fluid"
+                                style="width: 10rem; height: 10rem">
+                            <h5 class="my-3">{{ Auth::user()->name }} {{ Auth::user()->surname }}</h5>
+                            <p class="text-muted mb-1">{{ Auth::user()->description }} @if (empty(Auth::user()->description))
+                                    INFORMAZIONI
+                                @endif
+                            </p>
+                            <p class="text-muted mb-4">Registrato il: {{ Auth::user()->created_at }}</p>
+                            <div class="d-flex justify-content-center mb-2">
+                                <a href="{{ route('user.edit') }}" class="btn btn-dark text-decoration-none">MODIFICA
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="mb-0">Full Name</p>
+                                </div>
+                                <div class="col-sm-9">
+                                    <p class="text-muted mb-0">{{ Auth::user()->name }} {{ Auth::user()->surname }}
+                                    </p>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="mb-0">Email</p>
+                                </div>
+                                <div class="col-sm-9">
+                                    <p class="text-muted mb-0">{{ Auth::user()->email }}</p>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="mb-0">Phone</p>
+                                </div>
+                                <div class="col-sm-9">
+                                    <p class="text-muted mb-0">{{ Auth::user()->phone }}</p>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="mb-0">Address</p>
+                                </div>
+                                <div class="col-sm-9">
+                                    <p class="text-muted mb-0">
+                                        @if (!empty(Auth::user()->address))
+                                            {{ Auth::user()->address }}, {{ Auth::user()->city }}
+                                            ({{ Auth::user()->country }}) - {{ Auth::user()->state }}
+                                        @endif
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card mb-4 mb-lg-0">
+                        <div class="card-body p-0">
+                            <ul class="list-group list-group-flush rounded-3">
+                                <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                                    <i class="fab fa-github fa-lg" style="color: #333333;"></i>
+                                    <p class="mb-0">
+                                        @if (empty(Auth::user()->github))
+                                            http:://
+                                        @else
+                                            {{ Auth::user()->github }}
+                                        @endif
+                                    </p>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                                    <i class="fab fa-discord fa-lg" style="color: #7289DA;">
+                                    </i>
+                                    <p class="mb-0">
+                                        @if (empty(Auth::user()->discord))
+                                            http:://
+                                        @else
+                                            {{ Auth::user()->discord }}
+                                        @endif
+                                    </p>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                                    <i class="fab fa-instagram fa-lg" style="color: #ac2bac;"></i>
+                                    <p class="mb-0">
+                                        @if (empty(Auth::user()->instagram))
+                                            http:://
+                                        @else
+                                            {{ Auth::user()->instagram }}
+                                        @endif
+                                    </p>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                                    <i class="fab fa-facebook-f fa-lg" style="color: #3b5998;"></i>
+                                    <p class="mb-0">
+                                        @if (empty(Auth::user()->facebook))
+                                            http:://
+                                        @else
+                                            {{ Auth::user()->facebook }}
+                                        @endif
+                                    </p>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-end align-items-center p-3">
+                                    <a href="{{ route('user.edit') }}"
+                                        class="btn btn-dark text-decoration-none">MODIFICA</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
-
-            <div class="col-md-9">
-                <div class="d-flex">
-                    <h2 class="pe-2"> {{ Auth::user()->name }} {{ Auth::user()->surname }} </h2>
-                        <a href="{{ route('user.edit') }}"
-                            class="nav-link-custom text-decoration-none d-flex align-items-center gap-2 text-dark"> <i
-                                class="fa-solid fa-pen-to-square"></i>
-                        </a>
-                </div>
-
-                <p class="text-800">Registrato il: {{ Auth::user()->created_at }}</p>
-                <p class="text-800">Attivo da: {{ Auth::user()->created_at->diffForHumans() }}</p>
-                <p><strong>Email:</strong> {{ Auth::user()->email }} </p>
-                <p><strong>Data di Nascita:</strong> {{ Auth::user()->birthday }} </p>
-                <p><strong>Indirizzo:</strong> {{ Auth::user()->address }} </p>
-                <p><strong>Provincia:</strong> {{ Auth::user()->country }} </p>
-                <p><strong>Città:</strong> {{ Auth::user()->city }} </p>
-                <p><strong>Stato:</strong> {{ Auth::user()->state }} </p>
-                <p><strong>Descrizione:</strong> {{ Auth::user()->description }} </p>
-            </div>
-
         </div>
-    </div>
+    </section>
 </x-dashboard>

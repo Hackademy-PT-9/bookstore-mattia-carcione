@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UpdateUserRequest;
 use App\Models\Author;
 use App\Models\Book;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class RouteController extends Controller
 {
@@ -67,5 +69,19 @@ class RouteController extends Controller
     public function profileEdit()
     {
         return view('user.edit', ['user' => auth()->user(), 'states' => self::$nationalities, 'genders' => self::$genders]);
+    }
+
+    public function profileUpdate(UpdateUserRequest $request)
+    {
+        $path_image = $request->image;
+        if ($request->hasFile('image') && $request->file('image')->isValid()) {
+            $path_name = $request->file('image')->getClientOriginalName();
+            $path_image = $request->file('image')->storeAs('/public/storage', $path_name);
+        }
+        auth()->user()->update($request->validated());
+        Auth::user()->update([
+            'image' => $path_image
+        ]);
+        return redirect()->route('profile')->with('success', 'Profilo aggiornato con successo');
     }
 }

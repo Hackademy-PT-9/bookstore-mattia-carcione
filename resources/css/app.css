@@ -63,20 +63,48 @@ th {
     background-position: right 50%;
 }
 
+.card-custom-1 {
+    width: 20rem;
+    height: 25rem;
+    border-radius: 0px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
 .border-custom {
     border: 0;
     border-radius: 0;
     background-color: #F0F0F0
 }
 
+.border-custom:hover {
+    border: 0;
+    border-radius: 0;
+    background-color: black;
+    color: white!important;
+}
+
 /* css book.show */
 .trans-scale {
-    transition: 1.5s;
+    transition: 0.5s;
     transform: scale(1);
 }
 
 .trans-scale:hover {
     transform: scale(1.1);
+}
+
+/* css books.index */
+.hero-section {
+    padding: 300px 0 250px;
+}
+.overlay {
+    background-attachment: fixed;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    z-index: 1;
 }
 
 /* mediaquery */
@@ -117,6 +145,15 @@ th {
 
     .icon-edit {
         display: none !important;
+    }
+
+    .height-profile {
+        height: 75vh;
+    }
+
+    /* css books.index */
+    .row-index {
+        justify-content: start!important;
     }
 
     /* css show */
