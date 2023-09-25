@@ -20,8 +20,7 @@ return new class extends Migration {
             $table->string('city')->nullable();
             $table->string('country')->nullable();
             $table->string('state')->nullable();
-            $table->string('skype')->nullable();
-            $table->string('twitter')->nullable();
+            $table->string('discord')->nullable();
             $table->string('linkedin')->nullable();
             $table->string('instagram')->nullable();
             $table->string('github')->nullable();

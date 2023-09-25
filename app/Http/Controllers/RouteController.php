@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UpdateSocialRequest;
 use App\Http\Requests\UpdateUserRequest;
 use App\Models\Author;
 use App\Models\Book;
@@ -71,9 +72,14 @@ class RouteController extends Controller
         return view('user.edit', ['user' => auth()->user(), 'states' => self::$nationalities, 'genders' => self::$genders]);
     }
 
+    public function socialEdit()
+    {
+        return view('user.social-edit', ['user' => auth()->user()]);
+    }
+
     public function profileUpdate(UpdateUserRequest $request)
     {
-        $path_image = $request->image;
+        $path_image = Auth::user()->image;
         if ($request->hasFile('image') && $request->file('image')->isValid()) {
             $path_name = $request->file('image')->getClientOriginalName();
             $path_image = $request->file('image')->storeAs('/public/storage', $path_name);
@@ -84,4 +90,17 @@ class RouteController extends Controller
         ]);
         return redirect()->route('profile')->with('success', 'Profilo aggiornato con successo');
     }
+
+    public function socialUpdate(UpdateSocialRequest $request)
+    {
+        auth()->user()->update([
+            'facebook' => $request->facebook,
+            'linkedin' => $request->linkedin,
+            'instagram' => $request->instagram,
+            'discord' => $request->discord,
+            'github' => $request->github,
+        ]);
+        return redirect()->route('profile')->with('success', 'Profilo aggiornato con successo');
+    }
+
 }

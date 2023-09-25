@@ -27,7 +27,7 @@
                             <label class="form-label" for="image">Immagine profilo</label>
                             <input type="file" id="image"
                                 class="form-control form-control-lg @error('image') is-invalid @enderror" name="image"
-                                value="" />
+                            value="{{$user->image}}" />
                             @error('image')
                                 {{ $message }}
                             @enderror

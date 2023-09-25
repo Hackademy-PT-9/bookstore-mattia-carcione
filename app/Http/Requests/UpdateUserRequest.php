@@ -22,8 +22,8 @@ class UpdateUserRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required',
-            'surname' => 'required',
+            'name' => 'required|string',
+            'surname' => 'required|string',
             'email' => 'required|email',
             'image' => 'nullable|image|mimes:png,jpg,jpeg',
             'birthday' => 'nullable|string',
@@ -34,8 +34,6 @@ class UpdateUserRequest extends FormRequest
             'country' => 'nullable|string',
             'description' => 'nullable|string',
             'phone' => 'nullable|number',
-            'linkedin' => 'nullable|string',
-            'github' => 'nullable|string',
         ];
     }
 }

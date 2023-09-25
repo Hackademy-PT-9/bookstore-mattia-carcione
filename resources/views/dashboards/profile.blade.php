@@ -77,7 +77,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="card mb-4 mb-lg-0">
                         <div class="card-body p-0">
                             <ul class="list-group list-group-flush rounded-3">
@@ -122,8 +122,18 @@
                                         @endif
                                     </p>
                                 </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                                    <i class="fab fa-linkedin-in fa-lg" style="color: #3b5998;"></i>
+                                    <p class="mb-0">
+                                        @if (empty(Auth::user()->linkedin))
+                                            http:://
+                                        @else
+                                            {{ Auth::user()->linkedin }}
+                                        @endif
+                                    </p>
+                                </li>
                                 <li class="list-group-item d-flex justify-content-end align-items-center p-3">
-                                    <a href="{{ route('user.edit') }}"
+                                    <a href="{{ route('social.edit') }}"
                                         class="btn btn-dark text-decoration-none">MODIFICA</a>
                                 </li>
                             </ul>

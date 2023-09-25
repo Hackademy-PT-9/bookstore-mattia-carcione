@@ -20,7 +20,9 @@ Route::get('/', [RouteController::class, 'home'])->name('home');
 Route::get('/dashboard', [RouteController::class, 'dashboard'])->name('dashboard');
 Route::get('/dashboard/user-profile', [RouteController::class, 'profile'])->name('profile');
 Route::get('/dashboard/user-profile/edit', [RouteController::class, 'profileEdit'])->name('user.edit');
+Route::get('/dashboard/user-profile-social/edit', [RouteController::class, 'socialEdit'])->name('social.edit');
 Route::put('/dashboard/user-profile/update', [RouteController::class, 'profileUpdate'])->name('user.update');
+Route::put('/dashboard/user-social/update', [RouteController::class, 'socialUpdate'])->name('social.update');
 //Route CRUD Book
 Route::resource('books', BookController::class);
 Route::resource('authors', AuthorController::class);
