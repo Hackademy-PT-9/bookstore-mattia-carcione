@@ -14,7 +14,9 @@
                     class="nav-link px-2 @if (Route::currentRouteName() == 'home') link-secondary disabled @endif"
                     aria-current="page">Home</a></li>
             <li class="nav-item"><a href="{{ route('books.index') }}"
-                    class="nav-link px-2 @if (Route::currentRouteName() == 'books.index') link-secondary disabled @endif">Store</a>
+                    class="nav-link px-2 @if (Route::currentRouteName() == 'books.index' ||
+                            Route::currentRouteName() == 'authors.index' ||
+                            Route::currentRouteName() == 'categories.index') link-secondary disabled @endif">Store</a>
             </li>
             <li class="nav-item"><a href="#" class="nav-link px-2">Chi Siamo</a></li>
             <li class="nav-item"><a href="#" class="nav-link px-2">Contatti</a></li>
