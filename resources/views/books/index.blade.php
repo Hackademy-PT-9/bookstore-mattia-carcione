@@ -17,7 +17,7 @@
                     <div class="d-flex align-items-center justify-content-between mt-3">
                         <div class="small">
                             <div class="fw-bold pb-2"><span class="fw-lighter">Autore
-                                </span>{{ $book->author->firstname }}</div>
+                                </span>{{ $book->author->firstname }} {{ $book->author->lastname }}</div>
                             <div class="text-muted">Prezzo: {{ $book->price }}€</div>
                         </div>
                     </div>

@@ -25,7 +25,7 @@
                             affonda le radici nei classici o abbraccia le novità. Qui, la tua prossima avventura
                             letteraria ti aspetta. Entra e lasciati ispirare dalla magia delle parole!</p>
                         <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
-                            <a class="btn btn-primary btn-lg px-4 me-sm-3" href="#features">Chi siamo</a>
+                            <a class="btn btn-dark btn-lg px-4 me-sm-3" href="#features">Chi siamo</a>
                             <a class="btn btn-outline-dark btn-lg px-4" href="#!">Contatti</a>
                         </div>
                     </div>
@@ -42,15 +42,15 @@
                     <div class="navbar justify-content-md-center" id="navbarsExample08">
                         <ul class="nav col-12 col-md-auto justify-content-center mb-md-0v align-items-center">
                             <li class="nav-item"><a
-                                    class="@if (Route::currentRouteName() == 'books.index') btn btn-primary text-light @endif mx-1"
+                                    class="@if (Route::currentRouteName() == 'books.index') btn btn-dark text-light @endif mx-1"
                                     style="text-decoration: none; color: black;"
                                     href="{{ route('books.index') }}">Libri</a></li>
                             <li class="nav-item"><a
-                                    class="@if (Route::currentRouteName() == 'authors.index') btn btn-primary text-light @endif mx-1"
+                                    class="@if (Route::currentRouteName() == 'authors.index') btn btn-dark text-light @endif mx-1"
                                     href="{{ route('authors.index') }}"
                                     style="text-decoration: none; color: black;">Autori</a></li>
                             <li class="nav-item"><a
-                                    class="@if (Route::currentRouteName() == 'categories.index') btn btn-primary text-light @endif mx-1"
+                                    class="@if (Route::currentRouteName() == 'categories.index') btn btn-dark text-light @endif mx-1"
                                     style="text-decoration: none; color: black;" href="#">Categorie</a></li>
                         </ul>
                     </div>
