@@ -3,8 +3,7 @@
         <section class="d-flex align-items-center">
             <div class="container px-4 px-lg-5 my-5">
                 <div class="row gx-4 gx-lg-5 align-items-center">
-                    <div class="col-md-6"> <img class="card-img-top img-fluid rounded"
-                            style="width: 30rem; height: 35rem"
+                    <div class="col-md-6"> <img class="card-img-top img-fluid rounded" style="width: 30rem; height: 35rem"
                             src="{{ empty($book->image) ? '\function_set_default_image_when_image_not_present.png' : Storage::url($book->image) }}"
                             alt="..." />
                     </div>
@@ -31,10 +30,10 @@
                                 @endif
                             </p>
                             <p class="lead">
-                                    Aggiunto il: {{ $book->created_at }}
+                                Aggiunto il: {{ $book->created_at }}
                             </p>
                             <p class="lead">
-                                    Prezzo: {{ $book->price }}€
+                                Prezzo: {{ $book->price }}€
                             </p>
                         </div>
                         <div class="d-flex">
@@ -56,11 +55,14 @@
                         @if ($randombook->id != $book->id)
                             <div class="col-lg-4 mb-5 trans-scale">
                                 <div class="card h-100 shadow border-0">
-                                    <img class="card-img-top"
+                                    <img class="card-img-top card-img-show" style="height: 7rem"
                                         src="{{ empty($randombook->image) ? '\function_set_default_image_when_image_not_present.png' : Storage::url($randombook->image) }}"
                                         alt="{{ $randombook->title }}">
                                     <div class="card-body p-4">
-                                        {{-- <div class="badge bg-primary bg-gradient rounded-pill mb-2">News</div> --}}
+                                        @if ($randombook->created_at->diffInHours(now()) < 24)
+                                            <div class="badge bg-primary bg-gradient rounded-pill mb-2">News</div>
+                                        @endif
+
                                         <a class="text-decoration-none link-dark stretched-link"
                                             href="{{ route('books.show', $randombook) }}">
                                             <h5 class="card-title mb-3">{{ $randombook->title }}</h5>
@@ -69,7 +71,8 @@
                                         <div class="d-flex align-items-center justify-content-between mt-3">
                                             <div class="small">
                                                 <div class="fw-bold pb-2"><span class="fw-lighter">Atutore
-                                                    </span>{{ $randombook->author->firstname }}</div>
+                                                    </span>{{ $randombook->author->firstname }}
+                                                    {{ $randombook->author->lastname }}</div>
                                                 <div class="text-muted">Prezzo: {{ $randombook->price }}€</div>
                                             </div>
                                         </div>

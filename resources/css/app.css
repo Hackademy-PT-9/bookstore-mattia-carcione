@@ -163,6 +163,11 @@ th {
         justify-content: start !important;
     }
 
+    .img-card-index {
+        width: 23rem;
+        height: 15rem;
+    }
+
     /* css show */
     .margin-show {
         margin-top: 5% !important;
@@ -175,5 +180,10 @@ th {
 
     .div-show-random {
         justify-content: center !important;
+    }
+
+    .card-img-show {
+        width: 16.87rem;
+        height: 10rem;
     }
 }

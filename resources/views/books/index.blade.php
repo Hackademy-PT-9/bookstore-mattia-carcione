@@ -2,11 +2,14 @@
     @foreach ($books as $book)
         <div class="col-lg-4 mb-5 trans-scale">
             <div class="card h-100 shadow border-0">
-                <img class="card-img-top"
+                <img class="card-img-top img-card-index"
                     src="{{ empty($book->image) ? '\function_set_default_image_when_image_not_present.png' : Storage::url($book->image) }}"
                     alt="{{ $book->title }}">
                 <div class="card-body p-4">
-                    {{-- <div class="badge bg-primary bg-gradient rounded-pill mb-2">News</div> --}}
+                    @if ($book->created_at->diffInHours(now()) < 24)
+                        <div class="badge bg-primary bg-gradient rounded-pill mb-2">News</div>
+                    @endif
+
                     <a class="text-decoration-none link-dark stretched-link" href="{{ route('books.show', $book) }}">
                         <h5 class="card-title mb-3">{{ $book->title }}</h5>
                     </a>
