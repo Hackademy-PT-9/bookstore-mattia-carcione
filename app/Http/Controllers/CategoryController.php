@@ -30,7 +30,8 @@ class CategoryController extends Controller
     public function store(StoreCategoryRequest $request)
     {
         Category::create([
-            'name' => $request->name
+            'name' => $request->name,
+            'user_id' => auth()->user()->id
         ]);
 
         return redirect()->route('categories.dashboard')->with('success', 'Categoria aggiunta con successo');
