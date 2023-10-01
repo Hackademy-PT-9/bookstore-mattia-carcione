@@ -1,5 +1,4 @@
 <x-dashboard>
-
     <div class="d-flex justify-content-between py-5">
         <h2 class="text-dark ">Dashboard</h2>
         <button class="btn btn-success" type="button"><a class="text-decoration-none text-light"
@@ -31,40 +30,34 @@
             <thead>
                 <tr>
                     <th scope="col-md-1" class="py-3">#</th>
-                    <th scope="col-md-1" class="py-3">Autore</th>
-                    <th scope="col-md-1" class="py-3 d-none d-md-table-cell">Nazionalità</th>
+                    <th scope="col-md-1" class="py-3">Categoria</th>
                     <th scope="col-md-1" class="py-3"></th>
                     <th scope="col-md-1" class="py-3"></th>
                 </tr>
             </thead>
 
             <tbody>
-                @foreach (Auth::user()->authors as $author)
+                @foreach (Auth::user()->authors as $category)
                     <tr>
                         <td class="py-3 col-md-1">{{ $count++ }}</td>
                         <td class="py-3 col-md-1">
-                            <a href="{{ route('authors.show', compact('author')) }}"
-                                class="nav-link-custom text-decoration-none d-flex align-items-center gap-2 text-dark">{{ $author->firstname }}
-                                {{ $author->lastname }}<span><i class="fa-solid fa-magnifying-glass"></i></span>
+                            <a href="{{ route('categories.show', compact('category')) }}"
+                                class="nav-link-custom text-decoration-none d-flex align-items-center text-dark">{{ $category->firstname }}
+                                {{ $category->lastname }}<span><i class="fa-solid fa-magnifying-glass"></i></span>
                             </a>
                         </td>
 
-                        <td class="py-3 col-md-1 d-none d-md-table-cell">
-                            @if (!$author->nationality)
-                                /
-                            @else
-                                {{ $author->nationality }}
-                            @endif
-                        </td>
                         <td class="text-center align-middle">
-                            <a href="{{ route('authors.edit', compact('author')) }}" class="btn btn-sm btn-warning"><i
-                                    class="fa-solid fa-pen-to-square icon-edit"></i>
+                            <a href="{{ route('categories.edit', compact('category')) }}"
+                                class="btn btn-sm btn-warning"><i class="fa-solid fa-pen-to-square icon-edit"></i>
                                 <span class="d-none btn-edit">Modifica</span>
                             </a>
+                            
                         </td>
+
                         <td class="text-center align-middle">
                             <form class="dropdown col-md-3 text-center align-middle"
-                                action="{{ route('authors.destroy', compact('author')) }}" method="POST">
+                                action="{{ route('categories.destroy', compact('category')) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
                                 <button class="btn btn-sm btn-danger d-none d-md-block" type="submit">

@@ -133,7 +133,9 @@
                 </div>
             </nav>
 
-            {{ $slot }}
+            <div class="container-md">
+                {{ $slot }}
+            </div>
 
         </main>
     </div>
