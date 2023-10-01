@@ -10,6 +10,14 @@ class Category extends Model
     use HasFactory;
 
     protected $fillable = [
-        'category_name'
+        'category_name', 'user_id'
     ];
+
+    public function books(){
+        return $this->belongsToMany(Book::class);
+    }
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
 }
