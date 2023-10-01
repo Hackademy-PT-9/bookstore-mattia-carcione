@@ -21,7 +21,24 @@
     <main class="min-vh-100  pt-5 bg-light">
         <div class="container">
             <div class="text-center py-5">
-                <h2>La nostra selezione</h2>
+                <div class="container-fluid">
+                    <div class="navbar justify-content-md-center" id="navbarsExample08">
+                        <ul class="nav col-12 col-md-auto justify-content-center mb-md-0v align-items-center">
+                            <li class=""><a class="text-decoration-none @if (Route::currentRouteName() == 'books.index')
+                                btn btn-primary text-light
+                            @endif mx-1"
+                                    href="#">Libri</a></li>
+                            <li class="@if (Route::currentRouteName() == 'authors.index')
+                            btn btn-primary
+                        @endif mx-1"><a class="text-decoration-none"
+                                href="{{ route('authors.index') }}">Autori</a></li>
+                            <li class="@if (Route::currentRouteName() == 'categories.index')
+                            btn btn-primary
+                        @endif mx-1"><a class="text-decoration-none"
+                                    href="#">Categorie</a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
             <section class="py-5">
                 <div class="container px-5 my-5">
@@ -34,14 +51,16 @@
                                         alt="{{ $book->title }}">
                                     <div class="card-body p-4">
                                         {{-- <div class="badge bg-primary bg-gradient rounded-pill mb-2">News</div> --}}
-                                        <a class="text-decoration-none link-dark stretched-link" href="#!">
+                                        <a class="text-decoration-none link-dark stretched-link"
+                                            href="{{ route('books.show', $book) }}">
                                             <h5 class="card-title mb-3">{{ $book->title }}</h5>
                                         </a>
                                         <p class="card-text mb-0">{{ $book->description }}</p>
                                         <div class="d-flex align-items-center justify-content-between mt-3">
                                             <div class="small">
-                                                <div class="fw-bold">{{ $book->author->firstname }}</div>
-                                                <div class="text-muted">{{ $book->price }}€</div>
+                                                <div class="fw-bold pb-2"><span class="fw-lighter">Autore
+                                                    </span>{{ $book->author->firstname }}</div>
+                                                <div class="text-muted">Prezzo: {{ $book->price }}€</div>
                                             </div>
                                         </div>
 
@@ -49,10 +68,11 @@
                                     <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
                                         <div class="d-flex align-items-end justify-content-between">
                                             <div class="d-flex align-items-center">
-                                                <img class="rounded-circle me-3"
-                                                    src="https://dummyimage.com/40x40/ced4da/6c757d" alt="...">
+                                                <img class="rounded-circle me-3" style="width: 40px; height: 40px;"
+                                                    src="{{ empty($book->user->image) ? '\function_set_default_image_when_image_not_present.png' : Storage::url($book->user->image) }}"
+                                                    alt="{{ $book->user->name }}">
                                                 <div class="small">
-                                                    <div class="fw-bold">{{ $book->author->firstname }}</div>
+                                                    <div class="fw-bold">{{ $book->user->name }}</div>
                                                     <div class="text-muted">{{ $book->created_at }}</div>
                                                 </div>
                                             </div>
