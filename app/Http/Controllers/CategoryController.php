@@ -29,7 +29,11 @@ class CategoryController extends Controller
      */
     public function store(StoreCategoryRequest $request)
     {
-        //
+        Category::create([
+            'name' => $request->name
+        ]);
+
+        return redirect()->route('categories.dashboard')->with('success', 'Categoria aggiunta con successo');
     }
 
     /**
@@ -53,7 +57,11 @@ class CategoryController extends Controller
      */
     public function update(UpdateCategoryRequest $request, Category $category)
     {
-        //
+        $category->update([
+            'name' => $request->name
+        ]);
+
+        return redirect()->route('categories.dashboard')->with('success', 'Categoria modificata con successo');
     }
 
     /**
@@ -61,6 +69,7 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        $category->delete();
+        return redirect()->route('dashboard')->with('success', 'Categoria eliminata con successo');
     }
 }

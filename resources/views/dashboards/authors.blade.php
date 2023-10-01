@@ -5,7 +5,7 @@
         <button class="btn btn-success" type="button"><a class="text-decoration-none text-light"
                 href="{{ route('authors.create') }}">Aggiungi un autore</a></button>
     </div>
-    @if (session('success') != 'Libro eliminato con successo' && session('success'))
+    @if (session('success') != 'Autore eliminato con successo' && session('success'))
         <div class="alert alert-success d-flex align-items-center" role="alert">
             <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:">
                 <use xlink:href="#check-circle-fill" />
@@ -15,7 +15,7 @@
             </div>
         </div>
     @endif
-    @if (session('success') == 'Libro eliminato con successo')
+    @if (session('success') == 'Autore eliminato con successo')
         <div class="alert alert-danger d-flex align-items-center" role="alert">
             <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:">
                 <use xlink:href="#check-circle-fill" />
