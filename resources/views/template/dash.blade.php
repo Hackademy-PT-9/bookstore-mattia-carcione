@@ -81,7 +81,7 @@
 
                     <ul class="nav flex-column mb-auto">
                         <li class="nav-item">
-                            <a class="nav-link d-flex align-items-center gap-2 text-dark"
+                            <a class="nav-link d-flex align-items-center gap-2 text-dark w-50 link-dash"
                                 href="{{ route('books.index') }}">
                                 Bookstore
                             </a>
@@ -90,7 +90,7 @@
                             <form action="{{ route('logout') }}" method="POST">
                                 @csrf
                                 @method('POST')
-                                <a class="nav-link d-flex align-items-center gap-2"
+                                <a class="nav-link d-flex align-items-center gap-2 w-50 link-dash"
                                     onclick="event.preventDefault(); this.closest('form').submit();" type="submit">
                                     Esci
                                 </a>
