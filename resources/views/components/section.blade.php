@@ -29,7 +29,7 @@
                 <div class="card-body" style="">
                     <h5 class="card-title" style="margin-top: 85%">Categorie</h5>
                     <p class="card-text">Seleziona la categoria</p>
-                    <a href="#" class="btn btn-primary text-dark border-custom">Acquista ora</a>
+                <a href="{{ route('categories.index') }}" class="btn btn-primary text-dark border-custom">Acquista ora</a>
                 </div>
             </div>
         </div>

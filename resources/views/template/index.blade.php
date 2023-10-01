@@ -51,7 +51,8 @@
                                     style="text-decoration: none; color: black;">Autori</a></li>
                             <li class="nav-item"><a
                                     class="@if (Route::currentRouteName() == 'categories.index') btn btn-dark text-light disabled custom-bg-btn @endif mx-1"
-                                    style="text-decoration: none; color: black;" href="#">Categorie</a></li>
+                                    style="text-decoration: none; color: black;"
+                                    href="{{ route('categories.index') }}">Categorie</a></li>
                         </ul>
                     </div>
                 </div>
