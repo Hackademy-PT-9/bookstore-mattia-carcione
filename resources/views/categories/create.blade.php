@@ -17,12 +17,12 @@
                         </h2>
 
                         <div class="form-outline form-white mb-4 text-start">
-                            <label class="form-label" for="category_name">Nome <span class="text-danger">*</span></label>
-                            <input type="text" id="category_name"
-                                class="form-control form-control-lg @error('category_name') is-invalid @enderror"
-                                placeholder="Nome della categoria" name="category_name" required
-                                value="{{ old('category_name') }}" />
-                            @error('category_name')
+                            <label class="form-label" for="name">Nome categoria<span class="text-danger">*</span></label>
+                            <input type="text" id="name"
+                                class="form-control form-control-lg @error('name') is-invalid @enderror"
+                                placeholder="Nome della categoria" name="name" required
+                                value="{{ old('name') }}" />
+                            @error('name')
                                 {{ $message }}
                             @enderror
                         </div>

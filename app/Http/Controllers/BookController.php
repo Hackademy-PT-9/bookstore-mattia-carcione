@@ -6,6 +6,7 @@ use App\Models\Author;
 use App\Models\Book;
 use App\Http\Requests\StoreBookRequest;
 use App\Http\Requests\UpdateBookRequest;
+use App\Models\Category;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Str;
@@ -32,7 +33,7 @@ class BookController extends Controller
      */
     public function create()
     {
-        return view('books.create', ['authors' => Author::all()]);
+        return view('books.create', ['authors' => Author::all(), 'categories' => Category::all()]);
     }
 
     /**
@@ -46,7 +47,7 @@ class BookController extends Controller
             $path_image = $request->file('image')->storeAs('/public/storage', $path_name);
         }
 
-        Book::create([
+        $book = Book::create([
             'title' => $request->title,
             'genre' => $request->genre,
             'image' => $path_image,
@@ -56,8 +57,10 @@ class BookController extends Controller
             'price' => $request->price,
             'author_id' => $request->author_id,
             'uri' => Str::slug($request->title, '-'),
-            'user_id' => auth()->user()->id
+            'user_id' => auth()->user()->id,
         ]);
+
+        $book->categories()->attach($request->categories);
 
         return redirect()->route('dashboard')->with('success', 'Libro aggiunto con successo');
     }
@@ -75,7 +78,7 @@ class BookController extends Controller
      */
     public function edit(Book $book)
     {
-        return view('books.edit', ['book' => $book, 'authors' => Author::all()]);
+        return view('books.edit', ['book' => $book, 'authors' => Author::all(), 'categories' => Category::all()]);
     }
 
     /**

@@ -4,7 +4,7 @@
             <main>
                 <form class="card-body text-center" action="{{ route('categories.store') }}" method="POST">
                     @csrf
-                    @method('POST')
+                    @method('PUT')
                     <div class="d-flex justify-content-start">
                         <a href="{{ route('home') }}">
                             <i class="fa-solid fa-xmark fs-5" style="color: #ffffff;"></i>

@@ -37,13 +37,12 @@
             </thead>
 
             <tbody>
-                @foreach (Auth::user()->authors as $category)
+                @foreach (Auth::user()->categories as $category)
                     <tr>
                         <td class="py-3 col-md-1">{{ $count++ }}</td>
                         <td class="py-3 col-md-1">
                             <a href="{{ route('categories.show', compact('category')) }}"
-                                class="nav-link-custom text-decoration-none d-flex align-items-center text-dark">{{ $category->firstname }}
-                                {{ $category->lastname }}<span><i class="fa-solid fa-magnifying-glass"></i></span>
+                                class="nav-link-custom text-decoration-none d-flex align-items-center text-dark">{{ $category->name }}<span class="px-1"><i class="fa-solid fa-magnifying-glass"></i></span>
                             </a>
                         </td>
 
