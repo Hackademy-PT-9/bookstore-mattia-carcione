@@ -32,7 +32,7 @@
                         </div>
 
                         <button class="btn btn-outline-dark btn-lg px-5" href="" type="submit">Aggiungi</button>
-                        <a class="btn btn-dark btn-lg px-5" href="{{ route('dashboard') }}" type="submit">Annulla</a>
+                        <a class="btn btn-dark btn-lg px-5" href="{{ route('categories.dashboard') }}" type="submit">Annulla</a>
                     </div>
                 </form>
             </main>

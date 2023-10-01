@@ -63,12 +63,12 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link d-flex align-items-center gap-2 text-dark w-50 link-dash @if (Route::currentRouteName() == 'authors.dashboard') rounded-end bg-secondary w-50 text-light disabled @endif"
-                                href="{{route('authors.dashboard')}}">Autori
+                                href="{{ route('authors.dashboard') }}">Autori
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link d-flex align-items-center gap-2 text-dark w-50 link-dash @if (Route::currentRouteName() == '') rounded-end bg-secondary w-50 text-light disabled @endif"
-                                href="#">Categorie
+                            <a class="nav-link d-flex align-items-center gap-2 text-dark w-50 link-dash @if (Route::currentRouteName() == 'categories.dashboard') rounded-end bg-secondary w-50 text-light disabled @endif"
+                                href="{{ route('categories.dashboard') }}">Categorie
                             </a>
                         </li>
                     </ul>

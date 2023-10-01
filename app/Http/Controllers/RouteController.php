@@ -6,6 +6,7 @@ use App\Http\Requests\UpdateSocialRequest;
 use App\Http\Requests\UpdateUserRequest;
 use App\Models\Author;
 use App\Models\Book;
+use App\Models\Category;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -69,6 +70,11 @@ class RouteController extends Controller
     public function authorsDash()
     {
         return view('dashboards.authors', ['authors' => Author::all(), 'users' => User::all(), 'count' => self::$count]);
+    }
+
+    public function categoriesDash()
+    {
+        return view('dashboards.categories', ['categories' => Category::all(), 'users' => User::all(), 'count' => self::$count]);
     }
     public function profileEdit()
     {
