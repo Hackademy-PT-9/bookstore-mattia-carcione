@@ -30,7 +30,7 @@ class User extends Authenticatable
         'city',
         'country',
         'state',
-        'skype',
+        'discord',
         'twitter',
         'linkedin',
         'instagram',

@@ -33,7 +33,7 @@ class UpdateUserRequest extends FormRequest
             'address' => 'nullable|string',
             'country' => 'nullable|string',
             'description' => 'nullable|string',
-            'phone' => 'nullable|number',
+            'phone' => 'nullable|string',
         ];
     }
 }

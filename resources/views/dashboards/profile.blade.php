@@ -87,7 +87,8 @@
                                         @if (empty(Auth::user()->github))
                                             http:://
                                         @else
-                                            {{ Auth::user()->github }}
+                                            <a href="{{ Auth::user()->github }}" target="_blank"
+                                                class="text-decoration-none">{{ Auth::user()->github }}</a>
                                         @endif
                                     </p>
                                 </li>
@@ -96,7 +97,7 @@
                                     </i>
                                     <p class="mb-0">
                                         @if (empty(Auth::user()->discord))
-                                            http:://
+                                            Nome utente
                                         @else
                                             {{ Auth::user()->discord }}
                                         @endif
@@ -108,7 +109,7 @@
                                         @if (empty(Auth::user()->instagram))
                                             http:://
                                         @else
-                                            {{ Auth::user()->instagram }}
+                                            <a href="{{ Auth::user()->instagram }}">{{ Auth::user()->instagram }}</a>
                                         @endif
                                     </p>
                                 </li>
@@ -118,7 +119,8 @@
                                         @if (empty(Auth::user()->facebook))
                                             http:://
                                         @else
-                                            {{ Auth::user()->facebook }}
+                                            <a href="{{ Auth::user()->facebook }}" target="_blank"
+                                                class="text-decoration-none">{{ Auth::user()->facebook }}</a>
                                         @endif
                                     </p>
                                 </li>
@@ -128,7 +130,8 @@
                                         @if (empty(Auth::user()->linkedin))
                                             http:://
                                         @else
-                                            {{ Auth::user()->linkedin }}
+                                            <a class="text-decoration-none" target="_blank"
+                                                href="{{ Auth::user()->linkedin }}">{{ Auth::user()->linkedin }}</a>
                                         @endif
                                     </p>
                                 </li>

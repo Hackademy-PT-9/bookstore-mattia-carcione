@@ -27,7 +27,7 @@
                             <label class="form-label" for="image">Immagine profilo</label>
                             <input type="file" id="image"
                                 class="form-control form-control-lg @error('image') is-invalid @enderror" name="image"
-                            value="{{$user->image}}" />
+                                value="{{ $user->image }}" />
                             @error('image')
                                 {{ $message }}
                             @enderror
@@ -56,15 +56,28 @@
 
                         </div>
 
-                        <div class="form-outline form-white mb-4 text-start">
-                            <label class="form-label" for="typeEmailX">Indirizzo email <span
-                                    class="text-danger">*</span></label>
-                            <input type="email" id="typeEmailX"
-                                class="form-control form-control-lg @error('email') is-invalid @enderror"
-                                placeholder="email@example.com" name="email" required value="{{ $user->email }}" />
-                            @error('email')
-                                {{ $message }}
-                            @enderror
+                        <div class="form-outline d-flex justify-content-between form-white mb-4 text-start">
+                            <div class="col-6 px-1">
+                                <label class="form-label" for="typeEmailX">Indirizzo email <span
+                                        class="text-danger">*</span></label>
+                                <input type="email" id="typeEmailX"
+                                    class="form-control form-control-lg @error('email') is-invalid @enderror"
+                                    placeholder="email@example.com" name="email" required
+                                    value="{{ $user->email }}" />
+                                @error('email')
+                                    {{ $message }}
+                                @enderror
+                            </div>
+                            <div class="col-6 px-1">
+                                <label class="form-label" for="typephoneX">Cellulare <span
+                                        class="text-danger">*</span></label>
+                                <input type="text" id="typephoneX"
+                                    class="form-control form-control-lg @error('phone') is-invalid @enderror"
+                                    placeholder="1234" name="phone" value="{{ $user->phone }}" />
+                                @error('phone')
+                                    {{ $message }}
+                                @enderror
+                            </div>
                         </div>
 
                         <div class="row">
