@@ -17,7 +17,9 @@ use Illuminate\Support\Facades\Route;
 */
 //Route
 Route::get('/', [RouteController::class, 'home'])->name('home');
-Route::get('/dashboard', [RouteController::class, 'dashboard'])->name('dashboard');
+Route::get('/dashboard/books', [RouteController::class, 'dashboard'])->name('dashboard');
+Route::get('/dashboard/authors', [RouteController::class, 'authorsDash'])->name('authors.dashboard');
+// Route::get('/dashboard/categories', [RouteController::class, ''])->name('');
 Route::get('/dashboard/user-profile', [RouteController::class, 'profile'])->name('profile');
 Route::get('/dashboard/user-profile/edit', [RouteController::class, 'profileEdit'])->name('user.edit');
 Route::get('/dashboard/user-profile-social/edit', [RouteController::class, 'socialEdit'])->name('social.edit');

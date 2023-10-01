@@ -57,16 +57,19 @@ class RouteController extends Controller
     {
         return view('homepage');
     }
-
-    public function dashboard()
-    {
-        return view('dashboards.dashboard', ['books' => Book::all(), 'authors' => Author::all(), 'users' => User::all(), 'count' => self::$count]);
-    }
     public function profile()
     {
         return view('dashboards.profile');
     }
+    public function dashboard()
+    {
+        return view('dashboards.dashboard', ['books' => Book::all(), 'authors' => Author::all(), 'users' => User::all(), 'count' => self::$count]);
+    }
 
+    public function authorsDash()
+    {
+        return view('dashboards.authors', ['authors' => Author::all(), 'users' => User::all(), 'count' => self::$count]);
+    }
     public function profileEdit()
     {
         return view('user.edit', ['user' => auth()->user(), 'states' => self::$nationalities, 'genders' => self::$genders]);

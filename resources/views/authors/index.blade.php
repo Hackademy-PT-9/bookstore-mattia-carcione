@@ -12,8 +12,10 @@
                                     <h2 class="card-title h4">{{ $author->firstname }} {{ $author->lastname }} </h2>
 
 
-                                    <div class="small text-muted mb-3">Data di nascita:
-                                        {{ isset($author->birthday) ? $author->birthday->format('d-m-yy') : '' }}</div>
+                                    <div class="small text-muted mb-3">Nazionalità:
+                                        <span
+                                            class="link-underline-dark">{{ isset($author->nationality) ? $author->nationality : '' }}</span>
+                                    </div>
 
 
                                     <a href="{{ route('authors.show', $author) }}"><button type="submit"
@@ -27,4 +29,6 @@
             </div>
         </div>
     </div>
+
+
 </x-index>

@@ -44,44 +44,37 @@
                 <div class="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
                     <ul class="nav flex-column">
                         <li class="nav-item " aria-current="page">
-                            <a class="nav-link @if (Route::currentRouteName() == 'profile') rounded-end bg-secondary w-50 text-light disabled @endif d-flex align-items-center gap-2 active text-dark"
+                            <a class="nav-link @if (Route::currentRouteName() == 'profile') rounded-end bg-secondary w-50 text-light disabled @endif d-flex align-items-center gap-2 active text-dark w-50 link-dash"
                                 aria-current="page" href="{{ route('profile') }}">
                                 Profilo
                             </a>
                         </li>
-                        <li class="nav-item " aria-current="page">
-                            <a class="nav-link @if (Route::currentRouteName() == 'dashboard') rounded-end bg-secondary w-50 text-light disabled @endif d-flex align-items-center gap-2 active text-dark"
-                                aria-current="page" href="{{ route('dashboard') }}">
-                                Dashboard
+
+                        <h6
+                            class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-2 text-dark text-uppercase">
+                            <span>Prodotti</span>
+                        </h6>
+
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center gap-2 text-dark w-50 link-dash @if (Route::currentRouteName() == 'dashboard') rounded-end bg-secondary w-50 text-light disabled @endif"
+                                href="{{ route('dashboard') }}">
+                                Libri
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center gap-2 text-dark w-50 link-dash @if (Route::currentRouteName() == 'authors.dashboard') rounded-end bg-secondary w-50 text-light disabled @endif"
+                                href="{{route('authors.dashboard')}}">Autori
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center gap-2 text-dark w-50 link-dash @if (Route::currentRouteName() == '') rounded-end bg-secondary w-50 text-light disabled @endif"
+                                href="#">Categorie
                             </a>
                         </li>
                     </ul>
 
-                    <h6
-                        class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-dark text-uppercase">
-                        <span>Prodotti</span>
-                        <a class="link-secondary" href="#" aria-label="Aggiungi un nuovo report">
-                        </a>
-                    </h6>
-
                     <ul class="nav flex-column mb-auto">
-                        <li class="nav-item">
-                            <a class="nav-link d-flex align-items-center gap-2 text-dark"
-                                href="{{ route('books.create') }}">
-                                <i class="fa-solid fa-circle-plus"></i> Libro
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link d-flex align-items-center gap-2 text-dark"
-                                href="{{ route('authors.create') }}">
-                                <i class="fa-solid fa-circle-plus"></i> Autore
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link d-flex align-items-center gap-2 text-dark" href="#">
-                                <i class="fa-solid fa-circle-plus"></i> Categoria
-                            </a>
-                        </li>
+
                     </ul>
 
                     <hr class="my-3 border border-white text-light bg-light">

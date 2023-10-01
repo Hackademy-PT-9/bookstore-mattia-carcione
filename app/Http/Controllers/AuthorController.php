@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Author;
 use App\Http\Requests\StoreAuthorRequest;
 use App\Http\Requests\UpdateAuthorRequest;
+use Illuminate\Support\Facades\Auth;
 
 class AuthorController extends Controller
 {
@@ -40,7 +41,8 @@ class AuthorController extends Controller
      */
     public function index()
     {
-        return view('authors.index', ['authors' => Author::all()]);
+        $authors = Author::orderBy('lastname', 'asc')->get();
+        return view('authors.index', ['authors' => $authors]);
     }
 
     /**
@@ -60,9 +62,10 @@ class AuthorController extends Controller
             'firstname' => $request->firstname,
             'lastname' => $request->lastname,
             'nationality' => $request->nationality,
+            'user_id' => auth()->user()->id,
         ]);
 
-        return redirect()->route('dashboard')->with('success', 'Autore aggiunto con successo');
+        return redirect()->route('authors.dashboard')->with('success', 'Autore aggiunto con successo');
     }
 
     /**
@@ -92,7 +95,7 @@ class AuthorController extends Controller
             'nationality' => $request->nationality,
         ]);
 
-        return redirect()->route('dashboard')->with('success', 'Autore modificato con successo');
+        return redirect()->route('authors.dashboard')->with('success', 'Autore modificato con successo');
     }
 
     /**
@@ -101,7 +104,6 @@ class AuthorController extends Controller
     public function destroy(Author $author)
     {
         $author->delete();
-
         return redirect()->route('dashboard')->with('success', 'Autore eliminato con successo');
     }
 }

@@ -81,7 +81,7 @@ th {
     border: 0;
     border-radius: 0;
     background-color: black;
-    color: white!important;
+    color: white !important;
 }
 
 /* css book.show */
@@ -98,6 +98,7 @@ th {
 .hero-section {
     padding: 300px 0 250px;
 }
+
 .overlay {
     background-attachment: fixed;
     background-position: center center;
@@ -148,12 +149,18 @@ th {
     }
 
     .height-profile {
-        height: 75vh;
+        min-height: 75vh;
+    }
+
+    .link-dash:hover {
+        background-color: #6c757d;
+        border-top-right-radius: 0.25rem;
+        border-bottom-right-radius: 0.25rem;
     }
 
     /* css books.index */
     .row-index {
-        justify-content: start!important;
+        justify-content: start !important;
     }
 
     /* css show */
