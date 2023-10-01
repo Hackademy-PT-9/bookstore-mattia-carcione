@@ -6,6 +6,7 @@ use App\Models\Author;
 use App\Models\Book;
 use App\Http\Requests\StoreBookRequest;
 use App\Http\Requests\UpdateBookRequest;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Str;
 
@@ -53,7 +54,8 @@ class BookController extends Controller
             'year' => $request->year,
             'price' => $request->price,
             'author_id' => $request->author_id,
-            'uri' => Str::slug($request->title, '-')
+            'uri' => Str::slug($request->title, '-'),
+            'user_id' => auth()->user()->id
         ]);
 
         return redirect()->route('dashboard')->with('success', 'Libro aggiunto con successo');
