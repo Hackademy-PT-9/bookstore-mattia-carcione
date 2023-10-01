@@ -1,41 +1,38 @@
 <x-layout>
-    <div class="bg-dark py-5">
-        <div class="container px-5">
+    <div class="bg-light py-5">
+        <div class="container px-5 mt-5">
             <div class="row gx-5 align-items-center justify-content-center">
                 <div class="col-lg-8 col-xl-7 col-xxl-6">
                     <div class="my-5 text-center text-xl-start">
-                        <h1 class="display-5 fw-bolder text-white mb-2">A Bootstrap 5 template for modern businesses</h1>
-                        <p class="lead fw-normal text-white-50 mb-4">Quickly design and customize responsive mobile-first
-                            sites with Bootstrap, the world’s most popular front-end open source toolkit!</p>
+                        <h1 class="display-5 fw-bolder mb-2">BOOKSTORE</h1>
+                        <p class="lead fw-normal mb-4">Sfoglia le pagine e lasciati trasportare in mondi sconosciuti, affonda le radici nei classici o abbraccia le novità. Qui, la tua prossima avventura letteraria ti aspetta. Entra e lasciati ispirare dalla magia delle parole!</p>
                         <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
-                            <a class="btn btn-primary btn-lg px-4 me-sm-3" href="#features">Get Started</a>
-                            <a class="btn btn-outline-light btn-lg px-4" href="#!">Learn More</a>
+                            <a class="btn btn-primary btn-lg px-4 me-sm-3" href="#features">Chi siamo</a>
+                            <a class="btn btn-outline-dark btn-lg px-4" href="#!">Contatti</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center"><img class="img-fluid rounded-3 my-5"
-                        src="https://dummyimage.com/600x400/343a40/6c757d" alt="..."></div>
+                        src="\biblioteca1_large.jpg" alt="..."></div>
             </div>
         </div>
     </div>
-    <main class="min-vh-100  pt-5 bg-light">
+    <main class="min-vh-100  pt-5">
         <div class="container">
             <div class="text-center py-5">
                 <div class="container-fluid">
                     <div class="navbar justify-content-md-center" id="navbarsExample08">
                         <ul class="nav col-12 col-md-auto justify-content-center mb-md-0v align-items-center">
-                            <li class=""><a class="text-decoration-none @if (Route::currentRouteName() == 'books.index')
-                                btn btn-primary text-light
-                            @endif mx-1"
-                                    href="#">Libri</a></li>
-                            <li class="@if (Route::currentRouteName() == 'authors.index')
-                            btn btn-primary
-                        @endif mx-1"><a class="text-decoration-none"
-                                href="{{ route('authors.index') }}">Autori</a></li>
-                            <li class="@if (Route::currentRouteName() == 'categories.index')
-                            btn btn-primary
-                        @endif mx-1"><a class="text-decoration-none"
-                                    href="#">Categorie</a></li>
+                            <li class="nav-item"><a
+                                    class="@if (Route::currentRouteName() == 'books.index') btn btn-primary text-light @endif mx-1"
+                                    style="text-decoration: none; color: black;" href="#">Libri</a></li>
+                            <li class="nav-item"><a
+                                    class="@if (Route::currentRouteName() == 'authors.index') btn btn-primary @endif mx-1"
+                                    href="{{ route('authors.index') }}"
+                                    style="text-decoration: none; color: black;">Autori</a></li>
+                            <li class="nav-item"><a
+                                    class="@if (Route::currentRouteName() == 'categories.index') btn btn-primary @endif mx-1"
+                                    style="text-decoration: none; color: black;" href="#">Categorie</a></li>
                         </ul>
                     </div>
                 </div>

@@ -53,28 +53,6 @@
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-start div-show-random">
                     @foreach ($books as $randombook)
                         @if ($randombook->id != $book->id)
-                            {{-- <div class="col mb-5 pt-5 trans-scale">
-                                <div class="card h-100">
-                                    <img class="card-img-top"
-                                        src="{{ empty($randombook->image) ? '\function_set_default_image_when_image_not_present.png' : Storage::url($randombook->image) }}"
-                                        alt="{{ $randombook->title }}">
-                                    <div class="card-body p-4">
-                                        <div class="text-start">
-                                            <h5 class="fw-bolder">{{ $randombook->title }}</h5>
-                                            <div class="d-flex justify-content-between pt-2">
-                                                <p>{{ $randombook->author->firstname }}
-                                                    {{ $randombook->author->lastname }}</p>
-                                                <span>{{ $randombook->price }}€</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                        <div class=""><a class="btn btn-outline-dark mt-auto"
-                                                href="{{ route('books.show', $randombook->id) }}">Scopri di più</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> --}}
                             <div class="col-lg-4 mb-5 trans-scale">
                                 <div class="card h-100 shadow border-0">
                                     <img class="card-img-top"
