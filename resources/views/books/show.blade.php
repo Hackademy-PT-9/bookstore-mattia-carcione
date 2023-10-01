@@ -19,7 +19,7 @@
                                         {{ $book->author->lastname }}</strong></a>
                             </p>
                             <p class="lead">
-                                Genere: {{ $book->genre }}
+                                Condizioni: {{ $book->genre }}
                             </p>
                             <p class="lead">
                                 Descrizione:

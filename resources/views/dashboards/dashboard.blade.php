@@ -47,47 +47,49 @@
             <tbody>
                 @foreach (Auth::user()->books as $book)
                     <tr>
-                        <td class="py-3 col-md-1">{{ $count++ }}</td>
-                        <td class="py-3 col-md-1">
+                        <td class="py-3 col-md-1 align-middle">{{ $count++ }}</td>
+                        <td class="py-3 col-md-1 align-middle">
                             <a href="{{ route('books.show', compact('book')) }}"
                                 class="nav-link-custom text-decoration-none d-flex align-items-center gap-2 text-dark">
                                 {{ $book->title }} <span><i class="fa-solid fa-magnifying-glass"></i></span>
                             </a>
                         </td>
 
-                        <td class="py-3 col-md-1">
+                        <td class="py-3 col-md-1 align-middle">
                             <a href="{{ route('authors.edit', ['author' => $book->author->id]) }}"
                                 class="nav-link-custom text-decoration-none d-flex align-items-center gap-2 text-dark">{{ $book->author->firstname }}
                                 {{ $book->author->lastname }} <span><i class="fa-solid fa-pen-to-square"></i></span>
                             </a>
                         </td>
-                        <td class="py-3 col-md-1">
-                            <a href="{{ route('authors.edit', ['author' => $book->author->id]) }}"
-                                class="nav-link-custom text-decoration-none d-flex align-items-center gap-2 text-dark">{{ $book->author->firstname }}
-                                {{ $book->author->lastname }} <span><i class="fa-solid fa-pen-to-square"></i></span>
-                            </a>
+                        <td class="py-3 col-md-1 align-middle">
+                            @foreach (Auth::user()->categories as $category)
+                                <a href="{{ route('categories.edit', ['category' => $category->id]) }}"
+                                    class="nav-link-custom text-decoration-none d-flex align-items-center gap-2 text-dark">
+                                    {{ $category->name }} <span><i class="fa-solid fa-pen-to-square"></i></span>
+                                </a>
+                            @endforeach
                         </td>
-                        <td class="py-3 col-md-1 d-none d-md-table-cell">{{ $book->genre }}
+                        <td class="py-3 col-md-1 align-middle d-none d-md-table-cell">{{ $book->genre }}
                             @if (!$book->genre)
                                 /
                             @endif
                         </td>
-                        <td class="py-3 col-md-1 d-none d-md-table-cell">{{ $book->description }}
+                        <td class="py-3 col-md-1 align-middle d-none d-md-table-cell">{{ $book->description }}
                             @if (!$book->description)
                                 /
                             @endif
                         </td>
-                        <td class="py-3 col-md-1 d-none d-md-table-cell">{{ $book->year }}
+                        <td class="py-3 col-md-1 align-middle d-none d-md-table-cell">{{ $book->year }}
                             @if (!$book->year)
                                 /
                             @endif
                         </td>
-                        <td class="py-3 col-md-1 d-none d-md-table-cell">{{ $book->pages }}
+                        <td class="py-3 col-md-1 align-middle d-none d-md-table-cell">{{ $book->pages }}
                             @if (!$book->pages)
                                 /
                             @endif
                         </td>
-                        <td class="py-3 col-md-1 d-none d-md-table-cell">{{ $book->price }}€</td>
+                        <td class="py-3 col-md-1 align-middle d-none d-md-table-cell">{{ $book->price }}€</td>
                         <td class="text-center align-middle">
                             <a href="{{ route('books.edit', compact('book')) }}" class="btn btn-sm btn-warning"><i
                                     class="fa-solid fa-pen-to-square icon-edit"></i>

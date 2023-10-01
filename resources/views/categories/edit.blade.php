@@ -13,7 +13,7 @@
 
                     <div class="mb-md-4 mt-md-4 pb-1">
                         <h2 class="fw-bold mb-2 text-uppercase d-flex justify-content-center align-items-center">
-                            Aggiungi una categoria
+                            Modifica la categoria
                         </h2>
 
                         <div class="form-outline form-white mb-4 text-start">
@@ -21,7 +21,7 @@
                             <input type="text" id="category_name"
                                 class="form-control form-control-lg @error('category_name') is-invalid @enderror"
                                 placeholder="Nome della categoria" name="category_name" required
-                                value="{{ $category->category_name }}" />
+                                value="{{ $category->name }}" />
                             @error('category_name')
                                 {{ $message }}
                             @enderror
