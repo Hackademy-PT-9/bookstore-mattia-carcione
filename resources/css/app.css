@@ -108,6 +108,10 @@ th {
     z-index: 1;
 }
 
+.custom-bg-btn {
+    opacity: 1 !important;
+}
+
 /* mediaquery */
 @media screen and (min-width: 992px) {
 

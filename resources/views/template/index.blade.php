@@ -42,15 +42,15 @@
                     <div class="navbar justify-content-md-center" id="navbarsExample08">
                         <ul class="nav col-12 col-md-auto justify-content-center mb-md-0v align-items-center">
                             <li class="nav-item"><a
-                                    class="@if (Route::currentRouteName() == 'books.index') btn btn-dark text-light @endif mx-1"
+                                    class="@if (Route::currentRouteName() == 'books.index') btn btn-dark text-light disabled custom-bg-btn @endif mx-1"
                                     style="text-decoration: none; color: black;"
                                     href="{{ route('books.index') }}">Libri</a></li>
                             <li class="nav-item"><a
-                                    class="@if (Route::currentRouteName() == 'authors.index') btn btn-dark text-light @endif mx-1"
+                                    class="@if (Route::currentRouteName() == 'authors.index') btn btn-dark text-light disabled custom-bg-btn @endif mx-1"
                                     href="{{ route('authors.index') }}"
                                     style="text-decoration: none; color: black;">Autori</a></li>
                             <li class="nav-item"><a
-                                    class="@if (Route::currentRouteName() == 'categories.index') btn btn-dark text-light @endif mx-1"
+                                    class="@if (Route::currentRouteName() == 'categories.index') btn btn-dark text-light disabled custom-bg-btn @endif mx-1"
                                     style="text-decoration: none; color: black;" href="#">Categorie</a></li>
                         </ul>
                     </div>
