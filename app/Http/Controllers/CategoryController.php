@@ -8,13 +8,16 @@ use App\Http\Requests\UpdateCategoryRequest;
 
 class CategoryController extends Controller
 {
+    protected static $count = 1;
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('categories.index');
+        $categories = Category::orderBy('name', 'asc')->get();
+        return view('categories.index', ['categories' => $categories, 'count' => self::$count]);
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -42,7 +45,7 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        return view('categories.show', compact('category'));
+        return view('categories.show', ['category' => $category, 'books' => $category->books]);
     }
 
     /**

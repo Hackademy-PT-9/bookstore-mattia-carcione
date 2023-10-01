@@ -58,7 +58,7 @@
                 </div>
             </div>
             <section class="py-5">
-                <div class="container px-5 my-5">
+                <div class="container @if (Route::currentRouteName() != 'categories.index') px-5 @endif my-5">
                     <div class="row gx-5">
 
                         {{ $slot }}

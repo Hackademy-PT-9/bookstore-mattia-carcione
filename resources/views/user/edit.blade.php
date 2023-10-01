@@ -90,13 +90,13 @@
                                     {{ $message }}
                                 @enderror
                             </div>
-                            <div class="col-3 form-outline form-white mb-4 text-start">
+                            {{-- <div class="col-3 form-outline form-white mb-4 text-start">
                                 <label class="form-label" for="state">Stato</label>
                                 <select type="text" id="state"
                                     class="form-control form-control-lg @error('state') is-invalid @enderror"
-                                    placeholder="Stato" name="state" value="{{ $user->state }}">
+                                    placeholder="Stato" name="state">
                                     @foreach ($states as $state)
-                                        <option value="{{ $state }}">
+                                        <option value="{{ $user->state }}">
                                             {{ $state }}
                                         </option>
                                     @endforeach
@@ -104,7 +104,7 @@
                                 @error('state')
                                     {{ $message }}
                                 @enderror
-                            </div>
+                            </div> --}}
                             <div class="d-md-flex flex-column a mb-4 py-2 col-2">
 
                                 @foreach ($genders as $gender)

@@ -18,22 +18,31 @@
                                     href="{{ route('authors.show', $book->author->id) }}"><strong>{{ $book->author->firstname }}
                                         {{ $book->author->lastname }}</strong></a>
                             </p>
+
                             <p class="lead">
-                                Condizioni: {{ $book->genre }}
+                                Categoria: @foreach ($book->categories as $category)
+                                    <a class="text-dark px-1"
+                                        href="{{ route('categories.show', $category) }}"><strong>{{ $category->name }}</strong></a>
+                                @endforeach
+                            </p>
+
+
+                            <p class="lead">
+                                Condizioni: <strong>{{ $book->genre }}</strong>
                             </p>
                             <p class="lead">
                                 Descrizione:
                                 @if (!empty($book->description))
-                                    {{ $book->description }}
+                                    <strong>{{ $book->description }}</strong>
                                 @else
                                     Nessuna descrizione disponibile
                                 @endif
                             </p>
                             <p class="lead">
-                                Aggiunto il: {{ $book->created_at }}
+                                Aggiunto il: <strong>{{ $book->created_at }}</strong>
                             </p>
                             <p class="lead">
-                                Prezzo: {{ $book->price }}€
+                                Prezzo: <strong>{{ $book->price }}€</strong>
                             </p>
                         </div>
                         <div class="d-flex">
