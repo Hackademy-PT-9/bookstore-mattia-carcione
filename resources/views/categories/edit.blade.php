@@ -20,8 +20,8 @@
                             <label class="form-label" for="category_name">Nome <span class="text-danger">*</span></label>
                             <input type="text" id="category_name"
                                 class="form-control form-control-lg @error('category_name') is-invalid @enderror"
-                                placeholder="Nome dell'autore" name="category_name" required
-                                value="{{ old('category_name') }}" />
+                                placeholder="Nome della categoria" name="category_name" required
+                                value="{{ $category->category_name }}" />
                             @error('category_name')
                                 {{ $message }}
                             @enderror
