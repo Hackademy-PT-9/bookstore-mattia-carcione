@@ -71,8 +71,7 @@
                                         <label class="form-check-label" for="categories">{{ $category->name }}</label>
                                         <input type="checkbox" id="categories"
                                             class="form-check-input form-check-input-lg @error('categories') is-invalid @enderror"
-                                            placeholder="Categoria" name="categories[]" value="{{ $category->id }}"
-                                            required>
+                                            placeholder="Categoria" name="categories[]" value="{{ $category->id }}" required>
                                     </div>
                                     @error('categories[]')
                                         {{ $message }}

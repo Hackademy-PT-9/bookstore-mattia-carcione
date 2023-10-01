@@ -33,6 +33,7 @@
                     <th scope="col-md-1" class="py-3">#</th>
                     <th scope="col-md-1" class="py-3">Titolo</th>
                     <th scope="col-md-1" class="py-3">Autore</th>
+                    <th scope="col-md-1" class="py-3">Categoria</th>
                     <th scope="col-md-1" class="py-3 d-none d-md-table-cell">Genere</th>
                     <th scope="col-md-1" class="py-3 d-none d-md-table-cell">Descrizione</th>
                     <th scope="col-md-1" class="py-3 d-none d-md-table-cell">Anno di pubblicazione</th>
@@ -54,6 +55,12 @@
                             </a>
                         </td>
 
+                        <td class="py-3 col-md-1">
+                            <a href="{{ route('authors.edit', ['author' => $book->author->id]) }}"
+                                class="nav-link-custom text-decoration-none d-flex align-items-center gap-2 text-dark">{{ $book->author->firstname }}
+                                {{ $book->author->lastname }} <span><i class="fa-solid fa-pen-to-square"></i></span>
+                            </a>
+                        </td>
                         <td class="py-3 col-md-1">
                             <a href="{{ route('authors.edit', ['author' => $book->author->id]) }}"
                                 class="nav-link-custom text-decoration-none d-flex align-items-center gap-2 text-dark">{{ $book->author->firstname }}

@@ -64,7 +64,7 @@ class RouteController extends Controller
     }
     public function dashboard()
     {
-        return view('dashboards.dashboard', ['books' => Book::all(), 'authors' => Author::all(), 'users' => User::all(), 'count' => self::$count]);
+        return view('dashboards.dashboard', ['books' => Book::all(), 'authors' => Author::all(), 'categories' => Category::all(), 'users' => User::all(), 'count' => self::$count]);
     }
 
     public function authorsDash()

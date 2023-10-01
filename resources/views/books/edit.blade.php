@@ -27,24 +27,24 @@
                                 {{ $message }}
                             @enderror
                         </div>
-                        
+
                         <div class="d-flex justify-content-between">
                             <div class="form-outline form-white mb-4 text-start align-items-center w-50 me-1">
                                 <label class="form-label" for="author_id">Autore <span
                                         class="text-danger">*</span></label>
-                                        <select type="text" id="author_id"
-                                        class="form-select form-select-lg @error('author_id') is-invalid @enderror"
-                                        placeholder="Autore" name="author_id">
-                                        @foreach ($authors as $author)
-                                            <option value="{{ $author->id }}"
-                                                @if ($author->id == $book->author_id) selected @endif>
-                                                {{ $author->firstname }} {{ $author->lastname }}
-                                            </option>
-                                        @endforeach
-                                    </select>
-                                    @error('author_id')
-                                        {{ $message }}
-                                    @enderror
+                                <select type="text" id="author_id"
+                                    class="form-select form-select-lg @error('author_id') is-invalid @enderror"
+                                    placeholder="Autore" name="author_id">
+                                    @foreach ($authors as $author)
+                                        <option value="{{ $author->id }}"
+                                            @if ($author->id == $book->author_id) selected @endif>
+                                            {{ $author->firstname }} {{ $author->lastname }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                                @error('author_id')
+                                    {{ $message }}
+                                @enderror
 
                                 <a href="{{ route('authors.create') }}" class="btn btn-lg btn-outline-dark mt-4">
                                     <i class="px-2 fa fa-solid fa-circle-plus"></i>Autore
@@ -60,19 +60,16 @@
                                         <label class="form-check-label" for="categories">Categoria
                                             sconosciuta</label>
                                         <input type="checkbox" id="categories"
-                                            class="form-check-input form-check-input-lg @error('categories') is-invalid @enderror"
+                                            class="form-check-input form-check-input-lg @error('categories[]') is-invalid @enderror"
                                             placeholder="Categoria" name="categories[]" value="0" required checked>
                                     </div>
                                 @endif
                                 @foreach ($categories as $category)
                                     <div class="form-check form-white mb-4 text-start align-items-center ms-5">
                                         <label class="form-check-label" for="categories">{{ $category->name }}</label>
-                                        <input type="checkbox" id="categories" @if ($book->categories->contains($category->id))
-                                            checked
-                                        @endif
-                                            class="form-check-input form-check-input-lg @error('categories') is-invalid @enderror"
-                                            placeholder="Categoria" name="categories[]" value="{{ $category->id }}"
-                                            required>
+                                        <input type="checkbox" id="categories" @checked($book->categories->contains($category->id))
+                                            class="form-check-input form-check-input-lg @error('categories[]') is-invalid @enderror"
+                                            placeholder="Categoria" name="categories[]" value="{{ $category->id }}">
                                     </div>
                                     @error('categories[]')
                                         {{ $message }}
@@ -134,8 +131,8 @@
                         <div class="form-outline form-white mb-4 text-start">
                             <label class="form-label" for="typePasswordX">Anno di pubblicazione</label>
                             <input type="date" id="typePasswordX"
-                                class="form-control form-control-lg @error('year') is-invalid @enderror" name="year"
-                                value="{{ $book->year }}" />
+                                class="form-control form-control-lg @error('year') is-invalid @enderror"
+                                name="year" value="{{ $book->year }}" />
                             @error('year')
                                 {{ $message }}
                             @enderror
@@ -146,7 +143,8 @@
                                     class="text-danger">*</span></label>
                             <input type="number" name="price" min="1"
                                 class="form-control form-control-lg @error('price') is-invalid @enderror"
-                                id="password_confirmation" required placeholder="0-9€" value="{{ $book->price }}" />
+                                id="password_confirmation" required placeholder="0-9€"
+                                value="{{ $book->price }}" />
                             @error('price')
                                 {{ $message }}
                             @enderror
@@ -156,7 +154,8 @@
                             <p>* Campi obbligatori</p>
                         </div>
 
-                        <button class="btn btn-outline-dark btn-lg px-5" href="" type="submit">Modifica</button>
+                        <button class="btn btn-outline-dark btn-lg px-5" href=""
+                            type="submit">Modifica</button>
                         <a class="btn btn-dark btn-lg px-5" href="{{ route('dashboard') }}">Annulla</a>
                     </div>
                 </form>

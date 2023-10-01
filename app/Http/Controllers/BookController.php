@@ -104,6 +104,8 @@ class BookController extends Controller
             'uri' => Str::slug($request->title, '-')
         ]);
 
+        $book->categories()->sync($request->categories);
+
         return redirect()->route('dashboard')->with('success', 'Libro modificato con successo');
     }
 
@@ -112,8 +114,8 @@ class BookController extends Controller
      */
     public function destroy(Book $book)
     {
+        $book->categories()->detach();
         $book->delete();
-
         return redirect()->route('dashboard')->with('success', 'Libro eliminato con successo');
     }
 }
